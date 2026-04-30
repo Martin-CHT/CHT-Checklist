@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<meta http-equiv="x-ua-compatible" content="IE=edge" />
+<html lang="cs" xmlns="http://www.w3.org/1999/xhtml" xmlns:htmldb="http://htmldb.oracle.com"
+  xmlns:apex="http://apex.oracle.com">
+
+<head>
+  <title>Print checklist</title>
+  <script type="text/javascript" nonce="5043de6eedfc4c6f9e01c61b099"
+    src="//local.adguard.org?ts=1777440911210&amp;type=content-script&amp;dmn=www.riscon.cz&amp;url=https%3A%2F%2Fwww.riscon.cz%2Fgo%2Ff%3Fp%3D110%3A6413%3A4602712742750%3A%3ANO%3A6416%3AP6413_ID%3A4833&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1&amp;stealth=1&amp;st-dnt"></script>
+  <script type="text/javascript" nonce="5043de6eedfc4c6f9e01c61b099"
+    src="//local.adguard.org?ts=1777440911210&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;name=Web%20of%20Trust&amp;type=user-script"></script>
+  <link rel="icon" href="/i/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/i/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/i/app_ui/css/Core.min.css?v=5.1.4.00.08" type="text/css" />
+  <link rel="stylesheet" href="/i/app_ui/css/Theme-Standard.min.css?v=5.1.4.00.08" type="text/css" />
+  <link rel="stylesheet" href="/i/libraries/jquery-ui/1.10.4/themes/base/jquery-ui.min.css?v=5.1.4.00.08"
+    type="text/css" />
+
+  <link rel="stylesheet" href="/i/legacy_ui/css/5.0.min.css?v=5.1.4.00.08" type="text/css" />
+
+
+
+
+
+
+  <script type="text/javascript">
+    var apex_img_dir = "/i/", htmldb_Img_Dir = apex_img_dir;
+  </script>
+  <!--[if lt IE 9]><script type="text/javascript" src="/i/libraries/jquery/1.12.3/jquery-1.12.3.min.js?v=5.1.4.00.08"></script><![endif]-->
+  <!--[if gte IE 9]><!-->
+  <script type="text/javascript" src="/i/libraries/jquery/2.2.3/jquery-2.2.3.min.js?v=5.1.4.00.08"></script>
+  <!--<![endif]-->
+  <script type="text/javascript" src="/i/libraries/apex/minified/desktop.min.js?v=5.1.4.00.08"></script>
+  <script type="text/javascript"
+    src="wwv_flow.js_messages?p_app_id=110&p_lang=cs&p_version=5.1.4.00.08-5037201396"></script>
+  <script type="text/javascript" src="/i/libraries/apex/minified/legacy.min.js?v=5.1.4.00.08"></script>
+  <script type="text/javascript"
+    src="/i/libraries/jquery-migrate/1.4.1/jquery-migrate-1.4.1.min.js?v=5.1.4.00.08"></script>
+
+
+
+
+
+  <style type="text/css">
+    div.shadowed {
+      box-shadow: 3px 3px 3px #DDDDFF;
+    }
+
+    em.si_em {
+      font-size: 14px;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    caption.document_title {
+      font-size: 20px;
+      font-weight: bold;
+      color: blue;
+      padding: 1px 3px 1px 3px;
+    }
+
+    table.si_table {
+      width: 900px;
+      caption-side: top;
+      page-break-inside: always;
+    }
+
+    table.si_table {
+      border-top: 1px solid #DDDDDD;
+      border-bottom: 1px solid #DDDDDD;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    td.si_td {
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th.si_th {
+      border-bottom: 1px solid #DDDDDD;
+      background-color: #F1F1F1;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    li {
+      font-size: 14px;
+    }
+
+    td.si_td.strong {
+      font-weight: bold;
+    }
+
+    th.si_th,
+    td.si_td,
+    caption.si_caption {
+      padding: 1px 3px 1px 3px;
+    }
+
+    caption.si_caption {
+      font-size: 15px;
+      font-weight: bold;
+      background-color: #DDDDDD;
+      text-align: left;
+    }
+
+    th.si_th {
+      font-size: 14px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    td.si_td {
+      vertical-align: top;
+    }
+
+    h1.si_h1 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    h2.si_h2 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    h3.si_h3 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    h4.si_h4 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    div.signature {
+      float: left;
+    }
+
+    table.signature {
+      width: 280px;
+      caption-side: top;
+      float: left;
+      margin: 10px;
+    }
+
+    table.signature,
+    th.signature,
+    td.signature {
+      border: 1px solid #DDDDFF;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th.signature,
+    caption.signature {
+      font-size: 13px;
+      font-weight: bold;
+      background-color: #DDDDFF;
+    }
+
+    th.signature,
+    td.signature,
+    caption.signature {
+      padding: 1px 3px 1px 3px;
+    }
+
+    @media print div {
+      page-break-inside:avoid;
+    }
+
+    table {
+      page-braeak-inside: avoid;
+    }
+
+    th {
+      page-break-inside: avoid;
+    }
+
+    .toBeOnNewPage {
+      page-break-before: always;
+    }
+
+    .noprint {
+      display: none;
+    }
+
+    .custom-input {
+      border: none;
+      border-bottom: 1px solid black;
+      background: transparent;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 0;
+      margin: 0 5px;
+      outline: none;
+      text-align: center;
+    }
+
+    .sync-panel {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 15px;
+      margin: 15px 15px;
+      border-radius: 5px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sync-panel label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .sync-panel input[type="text"] {
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 250px;
+      font-size: 14px;
+    }
+
+    .sync-panel button {
+      padding: 7px 15px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .sync-panel button:hover {
+      background-color: #004494;
+    }
+
+    .sync-panel button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    .sync-panel .status-msg {
+      margin-left: 10px;
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    @media print {
+      .custom-input {
+        border-bottom: 1px solid black !important;
+      }
+
+      .sync-panel {
+        display: none !important;
+      }
+    }
+
+    /* NEW UI RULES */
+    body,
+    input,
+    button,
+    table,
+    th,
+    td,
+    div,
+    span,
+    label,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    caption {
+      font-family: 'Calibri', sans-serif !important;
+    }
+
+    .custom-input {
+      overflow: visible;
+      color: blue !important;
+      text-align: left !important;
+      border-bottom: 1px solid black !important;
+      min-width: 50px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Custom checkbox styles using radio buttons */
+    label {
+      cursor: pointer;
+      color: black;
+      /* Barva textu Ano/Ne/NZ */
+      display: inline-flex;
+      align-items: center;
+    }
+
+    input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border: 1px solid black;
+      border-radius: 2px;
+      /* Čtverec místo kolečka */
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+      margin-right: 4px;
+      margin-left: 2px;
+    }
+
+    input[type="radio"]:checked::after {
+      content: "✕";
+      color: blue;
+      font-size: 14px;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 1;
+    }
+
+    @media print {
+      .custom-input {
+        border-bottom: 1px solid black !important;
+      }
+    }
+
+
+    .invisible-input {
+      border: none;
+      background: transparent;
+      width: 100%;
+      color: blue !important;
+      font-family: inherit;
+      font-size: inherit;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .invisible-input:focus {
+      border-bottom: 1px dashed #ccc;
+    }
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <link rel="stylesheet" href="/i/themes/theme_2/css/theme_4_0.css" type="text/css" />
+  <!--[if IE]><link rel="stylesheet" href="/i/themes/theme_2/css/theme_4_0_ie.css" type="text/css" /><![endif]-->
+  <!--[if IE 6]><link rel="stylesheet" href="/i/themes/theme_2/css/theme_4_0_ie6.css" type="text/css" /><![endif]-->
+  <!--[if IE 7]><link rel="stylesheet" href="/i/themes/theme_2/css/theme_4_0_ie7.css" type="text/css" /><![endif]-->
+</head>
+
+<body>
+  <!--[if lte IE 6]><div id="outdated-browser">You are using an outdated web browser. For a list of supported browsers, please reference the Oracle Application Express Installation Guide.</div><![endif]-->
+  <form action="wwv_flow.accept" method="post" name="wwv_flow" id="wwvFlowForm" novalidate>
+    <input type="hidden" name="p_flow_id" value="110" id="pFlowId" /><input type="hidden" name="p_flow_step_id"
+      value="6413" id="pFlowStepId" /><input type="hidden" name="p_instance" value="4602712742750"
+      id="pInstance" /><input type="hidden" name="p_page_submission_id" value="35115988069608320709066253105642808740"
+      id="pPageSubmissionId" /><input type="hidden" name="p_request" value="" id="pRequest" /><input type="hidden"
+      name="p_reload_on_submit" value="A" id="pReloadOnSubmit" /><input type="hidden"
+      value="35115988069608320709066253105642808740" id="pSalt" />
+    <div id="header">
+      <div id="app-logo"><a href="f?p=110:1:4602712742750:::::"><span class="noprint"
+            style="font-family:Arial; color:#004C66; font-size:18px; white-space:nowrap; font-weight:bold;">Chládek &
+            Tintěra, a.s.</span></a></div>
+
+      <div id="navbar">
+        <div class="app-user"></div>
+
+      </div>
+    </div>
+    <div id="body">
+      <div class="sync-panel noprint">
+        <label for="form-id">ID / Název formuláře:</label>
+        <input type="text" id="form-id" placeholder="Např. Kontrola_01">
+        <button id="btn-save" type="button">Uložit do Google Sheets</button>
+        <button id="btn-load" type="button">Načíst z Google Sheets</button>
+        <span id="sync-status" class="status-msg"></span>
+      </div>
+      <table class="tbl-body" cellspacing="0" cellpadding="0" border="0" summary="">
+        <tbody>
+          <tr>
+            <td class="tbl-sidebar"></td>
+            <td class="tbl-main" width="100%"><input type="hidden" id="P6413_ID" name="P6413_ID" value="4833"><input
+                type="hidden" data-for="P6413_ID" value="D8aFzHLxUasiBSoaSD1TNFWMn2U"><input type="hidden"
+                id="P6413_INSP_ID" name="P6413_INSP_ID" value=""><input type="hidden" data-for="P6413_INSP_ID"
+                value="G7VW7SxL8LHBbIMlSh6jKRx6aBg">
+              <div>
+                <table class="si_table">
+                  <caption class="document_title" style="text-align: right;">Kontrolní seznam (checklist)
+                  </caption>
+                  <tr>
+                    <td class="si_td" style="text-align:left;"><em class="si_em"> Chládek & Tintěra, a.s.</em>, Nerudova
+                      1022, 412 01 Litoměřice<br /></td>
+                    <td class="si_td" style="text-align:right;"><img
+                        src="https://scontent-prg1-1.xx.fbcdn.net/v/t39.30808-6/472162624_1039932981271266_1810292119149339821_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=53a332&_nc_ohc=AEA83FbqiyAQ7kNvwFiEKZH&_nc_oc=Adq0wwE4F3v04WzXmiR5kHrbS2QatHxWExOPgzd3FSob5RxRREHorB6I7kItUJxT4G9whoy4vNW-5z-R2XtH3Plw&_nc_zt=23&_nc_ht=scontent-prg1-1.xx&_nc_gid=kS-RdA6jAtCtqJlrfx4u7A&_nc_ss=7a2a8&oh=00_Af1CfjAU_ZOO-GViI77gFj7vAgHOAPuGX9NbMsnBdEv9QQ&oe=69F83DEC"
+                        style="max-height:50px; width:auto;" /></td>
+                  </tr>
+                  <tr>
+                  </tr>
+                </table>
+              </div><br />
+              <div>
+                <table class="si_table">
+                  <tr>
+                    <td class="si_td" style="text-align: left; min-width:100px;">Název:</td>
+                    <td class="si_td" style="text-align:left;font-weight:bold;">Prověrka BOZP a požární prohlídka_STAVBA
+                      železnice</td>
+                    <td class="si_td" style="text-align:right; font-weight:bold;">02</td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align: left;">Platnost od:</td>
+                    <td class="si_td" style="text-align:left;">27.03.2024</td>
+                    <td class="si_td" style="text-align:right;">01</td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align: left; vertical-align:top;">Kontrolovaný subjekt ID:</td>
+                    <td class="si_td" style="text-align:left; vertical-align:top;" colspan=2><br /><input type="text"
+                        class="custom-input" style="width: 216px"></td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align: left;">Účel:</td>
+                    <td class="si_td" style="text-align:left; vertical-align:top;" colspan=2>
+                      <p>Slouž&iacute; pro prov&aacute;děn&iacute; Prověrky bezpečnosti a ochrany zdrav&iacute; a
+                        pož&aacute;rn&iacute; ochrany na pracovi&scaron;ti dle ust. &sect; 108 odst. 5 z&aacute;k. č.
+                        262/2006 Sb., a &sect; 12 Vyhl. č. 246/2001 Sb.</p>
+                    </td>
+                  </tr>
+                </table>
+              </div><br />
+              <div>
+                <table class="si_table">
+                  <tr>
+                    <th class="si_th" style="text-align:center;">#</th>
+                    <th class="si_th" style="text-align:left;">Otázka/Předmět</th>
+                    <th class="si_th" style="text-align:center;">Hodnocení/Odpověď</th>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">1</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Příkaz k realizaci zakázky předložen a
+                      plně vyplněn. <br />
+                      Vedením zakázky pověřen<input type="text" class="custom-input" style="width: 216px">
+                      <br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q1" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q1" value="no" /> Ne</label> <label><input type="radio" name="q1" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">2</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Předávací protokol Dokumenty stavební
+                      zakázka předložen? (CHT 2029)<br />
+                      Protokol řádně vyplněn?<input type="text" class="custom-input" style="width: 56px">
+                      <br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q2" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q2" value="no" /> Ne</label> <label><input type="radio" name="q2" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">3</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Stavební povolení k
+                      dispozici?<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q3" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q3" value="no" /> Ne</label> <label><input type="radio" name="q3" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">4</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Stavební deník předložen<br />
+                      - titulní strana vyplněna a opatřena razítkem autorizované osoby?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - vložka o provázání stavebního deníku s dokumentací BOZP a PO?<input type="text"
+                        class="custom-input" style="width: 50px"><br><input type="text" class="invisible-input"
+                        placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q4" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q4" value="no" /> Ne</label> <label><input type="radio" name="q4" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">5</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Smlouva o dílo / objednávka
+                      (investor/zhotovitel)_ev. č.<input type="text" class="custom-input"
+                        style="width: 160px"><br /><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q5" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q5" value="no" /> Ne</label> <label><input type="radio" name="q5" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">6</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Protokol o předání a převzetí staveniště
+                      (investor - zhotovitel)? <br />
+                      Ze dne<input type="text" class="custom-input" style="width: 168px">
+                      (provést kontrolu podpisů zúčastněných stran)<br /><br><input type="text" class="invisible-input"
+                        placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q6" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q6" value="no" /> Ne</label> <label><input type="radio" name="q6" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">7</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">K dispozici matice odpovědnosti stavby
+                      (viz kniha BOZP)?
+                      Určená osoba, která odpovídá za BOZP?<input type="text" class="custom-input"
+                        style="width: 176px"><br /><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q7" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q7" value="no" /> Ne</label> <label><input type="radio" name="q7" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">8</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Plán BOZP -
+                      vypracován?<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q8" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q8" value="no" /> Ne</label> <label><input type="radio" name="q8" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">9</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">S plánem BOZP seznámeni subdodavatelé?
+                      (viz CHT 2003; CHT 2007)<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q9" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q9" value="no" /> Ne</label> <label><input type="radio" name="q9" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">10</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Analýza rizik - klient - předložena?
+                      (karty rizik)_§ 102 odst. 3 zák. č. 262/2006 Sb.<br /><br><input type="text"
+                        class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q10" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q10" value="no" /> Ne</label> <label><input type="radio" name="q10" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">11</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Analýza rizik - Bezpečnostní instrukce
+                      (karty rizik) odpovídají pracím prováděných zaměstnanci Chládek & Tintěra, a.s.?
+                      <br /><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q11" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q11" value="no" /> Ne</label> <label><input type="radio" name="q11" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">12</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Činnost prováděna dle zpracovaných Analýz
+                      rizik - Bezpečnostních instrukcí (karty rizik)? Které činnosti jsou ve vazbě na karty rizik
+                      prováděny<input type="text" class="custom-input" style="width: 472px"><br /><br><input type="text"
+                        class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q12" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q12" value="no" /> Ne</label> <label><input type="radio" name="q12" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">13</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Pro které prováděné činnosti není
+                      zpracována Analýza rizik- Bezpečnostní instrukce?<input type="text" class="custom-input"
+                        style="width: 544px"><br /><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q13" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q13" value="no" /> Ne</label> <label><input type="radio" name="q13" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">14</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">S riziky prokazatelně seznámen
+                      koordinátor BOZP a ostatní zhotovitelé (CHT 2024)?<br /><br><input type="text"
+                        class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q14" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q14" value="no" /> Ne</label> <label><input type="radio" name="q14" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">15</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Uzavřena dohoda o koordinaci v oblasti
+                      BOZP dle § 101 Zákoníku práce (CHT 2023)? pozn. různé výklady v návaznosti na
+                      KOO<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q15" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q15" value="no" /> Ne</label> <label><input type="radio" name="q15" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">16</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Pracovní postupy zpracovány (CHT 2009)?
+                      Pracovní postupy řádně zpracovány a propojeny s Analýzou rizik - bezpečnostními profily? Doplněna
+                      další rizika?<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q16" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q16" value="no" /> Ne</label> <label><input type="radio" name="q16" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">17</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">V případě nově identifikovaných rizik je
+                      OZO BOZP odeslán požadavek na jejich dopracování?<br /><br><input type="text"
+                        class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q17" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q17" value="no" /> Ne</label> <label><input type="radio" name="q17" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">18</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">S pracovními postupy prokazatelně
+                      seznámeni zaměstnanci, kteří práce provádějí (např. CHT 2003)<br /><br><input type="text"
+                        class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q18" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q18" value="no" /> Ne</label> <label><input type="radio" name="q18" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">19</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Evidence zaměstnanců a pracovníků -
+                      vedena? Jak<input type="text" class="custom-input" style="width: 280px"><br /><br><input
+                        type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q19" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q19" value="no" /> Ne</label> <label><input type="radio" name="q19" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">20</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Všechny osoby seznámeny s místními
+                      bezpečnostními podmínkami staveniště (viz CHT 2003)? Seznámení s MBP je úplně vyplněno dle
+                      podmínek stavby?<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q20" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q20" value="no" /> Ne</label> <label><input type="radio" name="q20" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">21</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Záznamy o provedených kontrolách na
+                      alkohol - k dispozici (viz CHT 2011)<br /><br><input type="text" class="invisible-input"
+                        placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q21" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q21" value="no" /> Ne</label> <label><input type="radio" name="q21" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">22</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Předchozí prověrka / kontrola BOZP
+                      provedena?
+                      <br /><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q22" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q22" value="no" /> Ne</label> <label><input type="radio" name="q22" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">23</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Neshody z předchozí prověrky / kontroly
+                      BOZP odstraněny?<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q23" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q23" value="no" /> Ne</label> <label><input type="radio" name="q23" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">24</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Kniha úrazů k dispozici (CHT
+                      2019)?<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q24" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q24" value="no" /> Ne</label> <label><input type="radio" name="q24" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">25</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Zpracován Traumatologický plán stavby?
+                      Traumatologický plán vyvěšen a prokazatelně seznámeni zaměstnanci (CHT
+                      2021)?<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q25" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q25" value="no" /> Ne</label> <label><input type="radio" name="q25" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">26</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Prostředky pro poskytování první pomoci k
+                      dispozici v zařízení staveniště a na pracovištích? <br />
+                      Prováděna kontrola obsahu a výdeje prostředků (CHT 2027)<input type="text" class="custom-input"
+                        style="width: 72px"><br /><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q26" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q26" value="no" /> Ne</label> <label><input type="radio" name="q26" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">27</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Je zpracován DPŘ stavby (MPB_003)?<br />
+                      S DPŘ stavby všechny osoby seznámené<input type="text" class="custom-input"
+                        style="width: 72px">(CHT 2003)?<br /><br><input type="text" class="invisible-input"
+                        placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q27" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q27" value="no" /> Ne</label> <label><input type="radio" name="q27" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">28</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Je zpracován Skladovací řád (MPP
+                      004)?<br />
+                      Se skladovacím řádem osoby seznámené<input type="text" class="custom-input"
+                        style="width: 72px">(CHT 2003)
+                      <br /><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q28" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q28" value="no" /> Ne</label> <label><input type="radio" name="q28" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">29</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Havarijní plán
+                      zpracován?<br /><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q29" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q29" value="no" /> Ne</label> <label><input type="radio" name="q29" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">30</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Bezpečnostní listy chem. látek k
+                      dispozici?
+                      Pracovníci seznámeni<input type="text" class="custom-input" style="width: 64px">(CHT
+                      2003)<br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q30" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q30" value="no" /> Ne</label> <label><input type="radio" name="q30" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">31</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Denní poučení zaměstnanců provedeno (CHT
+                      2004)?<br />
+                      Protokol řádně a v plném rozsahu vyplněn<input type="text" class="custom-input"
+                        style="width: 56px"><br />
+                      Uvedené informace odpovídají podmínkám na pracovišti<input type="text" class="custom-input"
+                        style="width: 50px"><br /><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q31" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q31" value="no" /> Ne</label> <label><input type="radio" name="q31" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">32</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Určení bezpečnostních hlídek provedeno
+                      (CHT 2008)?<br />
+                      Doklad řádně a úplně vyplněn<input type="text" class="custom-input" style="width: 50px">?<br />
+                      Uvedené osoby skutečně vykonávají hlídku?<input type="text" class="custom-input"
+                        style="width: 56px"><br><input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q32" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q32" value="no" /> Ne</label> <label><input type="radio" name="q32" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">33</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Náhodně vybraný zaměstnanec na
+                      pracovišti:<input type="text" class="custom-input" style="width: 216px"><br />
+                      V době PBP /K BOZP prováděl činnosti:<input type="text" class="custom-input"
+                        style="width: 256px"><br />
+                      - Doklad o zdravotní způsobilosti k prováděným činnostem<input type="text" class="custom-input"
+                        style="width: 56px"><br />
+                      - Doklad o školení BOZP<input type="text" class="custom-input" style="width: 56px"><br />
+                      - Doklad o školení PO<input type="text" class="custom-input" style="width: 72px"><br />
+                      - Doklad o odborné způsobilosti<input type="text" class="custom-input" style="width: 64px"><br />
+                      - Doklad o povelní vstupu do provozované železniční cesty?<input type="text" class="custom-input"
+                        style="width: 56px"><br />
+                      - Záznam o provedeném převzetí OOPP, MČaDP - centrála / výdej na staveništi <br />
+                      - OOPP dle seznamu a Analýzy rizik - Bezpečnostní instrukce používány?
+                      - Záznam o seznámení s Místními bezpečnostními podmínkami proveden <br><input type="text"
+                        class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q33" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q33" value="no" /> Ne</label> <label><input type="radio" name="q33" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">34</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Náhodně vybraný zaměstnanec na
+                      pracovišti:<input type="text" class="custom-input" style="width: 216px"><br />
+                      V době PBP /K BOZP prováděl činnosti:<input type="text" class="custom-input"
+                        style="width: 256px"><br />
+                      - Doklad o zdravotní způsobilosti k prováděným činnostem<input type="text" class="custom-input"
+                        style="width: 56px"><br />
+                      - Doklad o školení BOZP<input type="text" class="custom-input" style="width: 56px"><br />
+                      - Doklad o školení PO<input type="text" class="custom-input" style="width: 72px"><br />
+                      - Doklad o odborné způsobilosti<input type="text" class="custom-input" style="width: 64px"><br />
+                      - Doklad o povelní vstupu do provozované železniční cesty?<input type="text" class="custom-input"
+                        style="width: 56px"><br />
+                      - Záznam o provedeném převzetí OOPP, MČaDP - centrála / výdej na staveništi <br />
+                      - OOPP dle seznamu a Analýzy rizik - Bezpečnostní instrukce používány?
+                      - Záznam o seznámení s Místními bezpečnostními podmínkami proveden <br><input type="text"
+                        class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q34" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q34" value="no" /> Ne</label> <label><input type="radio" name="q34" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">35</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Dokumentace požární ochrany
+                      zpracována?<br />
+                      - Požární poplachová směrnice<input type="text" class="custom-input" style="width: 64px"><br />
+                      - Požární řád<input type="text" class="custom-input" style="width: 56px"><br />
+                      - Požární evakuační plán<input type="text" class="custom-input" style="width: 56px"><br><input
+                        type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q35" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q35" value="no" /> Ne</label> <label><input type="radio" name="q35" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">36</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Smluvní dodavatel (subdodavatel):<input
+                        type="text" class="custom-input" style="width: 312px"><br />
+                      IČO:<input type="text" class="custom-input" style="width: 200px"><br />
+                      Prováděná činnost pro Chládek & Tintěra, a.s. :<input type="text" class="custom-input"
+                        style="width: 408px"><br />
+                      <br />
+                      - smlouva o dílo / objednávka (Chládek & Tintěra, a.s. - zhotovitel)?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - je obsažen odkaz na VOP nebo stanoveny podmínky BOZP?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - protokol o předání a převzetí pracoviště (CHT 2007)?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - pracoviště řádně a konkrétně vymezeno?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - protokol řádně v celém rozsahu vyplněn?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - určená odpovědná osoba dodavatele - trvale přítomna na staveništi (CHT 2007)?
+                      - rizika dodavatelem předložena (listinná / el. verze) a uvedeny v (CHT 2007)?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - obsahují rizika prováděné práce?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - dodavatel seznámen s Analýzou rizik Chládek & Tintěra, a.s. - Bezpečnostní instrukcí (CHT
+                      2007)?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - uzavřena dohoda o koordinaci a tato je řádně vyplněna?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - pracovní postup pro prováděné práce dodavatelem předložen?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - obsahuje pracovní postup část BOZP? (návaznost a souběh, prostředky, OOPP)?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - pracovníci seznámeni s místními bezp. podmínkami (MPBP) staveniště (CHT 2003)?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+
+                      - povolení pro vstup do provozované železniční cesty provedeno u:<br />
+                      1.<input type="text" class="custom-input" style="width: 136px"> platnost do<input type="text"
+                        class="custom-input" style="width: 112px"><br />
+                      2.<input type="text" class="custom-input" style="width: 136px"> platnost do<input type="text"
+                        class="custom-input" style="width: 112px"><br />
+                      <br />
+                      - v případě zapůjčení zařízení od Chládek & Tintěra, a.s. předáno na základě zápůjčního
+                      protokolu<input type="text" class="custom-input" style="width: 50px"><br />
+                      - pracovníci vybavení OOPP v rozsahu prováděných prací<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - doklady o revizích a kontrolách zařízení dodavatele doloženo<input type="text"
+                        class="custom-input" style="width: 50px"><br><input type="text" class="invisible-input"
+                        placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q36" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q36" value="no" /> Ne</label> <label><input type="radio" name="q36" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">37</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Smluvní dodavatel (subdodavatel):<input
+                        type="text" class="custom-input" style="width: 312px"><br />
+                      IČO:<input type="text" class="custom-input" style="width: 200px"><br />
+                      Prováděná činnost pro Chládek & Tintěra, a.s.:<input type="text" class="custom-input"
+                        style="width: 408px"><br />
+                      <br />
+                      - smlouva o dílo / objednávka (Chládek & Tintěra,a.s. - zhotovitel)?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - je obsažen odkaz na VOP nebo stanoveny podmínky BOZP?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - protokol o předání a převzetí pracoviště (CHT 2007)?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - pracoviště řádně a konkrétně vymezeno?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - protokol řádně v celém rozsahu vyplněn?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - určená odpovědná osoba dodavatele - trvale přítomna na staveništi (CHT 2007)?
+                      - rizika dodavatelem předložena (listinná / el. verze) a uvedeny v (CHT 2007)?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - obsahují rizika prováděné práce?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - dodavatel seznámen s Analýzou rizik Chládek & Tintěra, a.s. - Bezpečnostní instrukcí (CHT
+                      2007)?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - uzavřena dohoda o koordinaci a tato je řádně vyplněna?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - pracovní postup pro prováděné práce dodavatelem předložen?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - obsahuje pracovní postup část BOZP? (návaznost a souběh, prostředky, OOPP)?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - pracovníci seznámeni s místními bezp. podmínkami (MPBP) staveniště (CHT 2003)?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+
+                      - povolení pro vstup do provozované železniční cesty provedeno u:<br />
+                      1.<input type="text" class="custom-input" style="width: 136px"> platnost do<input type="text"
+                        class="custom-input" style="width: 112px"><br />
+                      2.<input type="text" class="custom-input" style="width: 136px"> platnost do<input type="text"
+                        class="custom-input" style="width: 112px"><br />
+                      <br />
+                      - v případě zapůjčení zařízení od Chládek & Tintěra, a.s. předáno na základě zápůjčního
+                      protokolu.<input type="text" class="custom-input" style="width: 50px"><br />
+                      - pracovníci vybavení OOPP v rozsahu prováděných prací<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - doklady o revizích a kontrolách zařízení dodavatele doloženo<input type="text"
+                        class="custom-input" style="width: 50px"><br><input type="text" class="invisible-input"
+                        placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q37" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q37" value="no" /> Ne</label> <label><input type="radio" name="q37" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">38</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Stroje, zařízení a nářadí označeno
+                      evidenčními čísly Chládek & Tintěra, a.s.<br /><br><input type="text" class="invisible-input"
+                        placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q38" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q38" value="no" /> Ne</label> <label><input type="radio" name="q38" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">39</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Náhodně vybrané el. zařízení, ev.č.<input
+                        type="text" class="custom-input" style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input"
+                        style="width: 104px"><br />
+                      - zařízení zaevidováno <br />
+                      <br />
+                      Náhodně vybrané el. zařízení, ev.č.<input type="text" class="custom-input"
+                        style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input"
+                        style="width: 104px"><br />
+                      - zařízení zaevidováno<br />
+                      <br />
+                      Náhodně vybrané el. zařízení, ev.č.<input type="text" class="custom-input"
+                        style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input"
+                        style="width: 104px"><br />
+                      - zařízení zaevidováno <br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q39" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q39" value="no" /> Ne</label> <label><input type="radio" name="q39" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">40</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Náhodně vybrané vázací prostředky
+                      ev.č.<input type="text" class="custom-input" style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - zařízení zaevidováno<br />
+                      <br />
+                      Náhodně vybrané vázací prostředky ev.č.<input type="text" class="custom-input"
+                        style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - zařízení zaevidováno <br />
+                      <br />
+                      Náhodně vybrané vázací prostředky ev.č.<input type="text" class="custom-input"
+                        style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - zařízení zaevidováno <br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q40" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q40" value="no" /> Ne</label> <label><input type="radio" name="q40" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">41</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Náhodně vybrané nářadí, zařízení apod.
+                      ev.č.<input type="text" class="custom-input" style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - zařízení zaevidováno<br />
+                      <br />
+                      Náhodně vybrané nářadí, zařízení apod. ev.č.<input type="text" class="custom-input"
+                        style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - zařízení zaevidováno <br />
+                      <br />
+                      Náhodně vybrané nářadí, zařízení apod. ev.č.<input type="text" class="custom-input"
+                        style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - zařízení zaevidováno<br />
+                      <br />
+                      Náhodně vybrané nářadí, zařízení apod. ev.č.<input type="text" class="custom-input"
+                        style="width: 168px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
+                        style="width: 64px"><br />
+                      - zařízení zaevidováno <br />
+                      <br />
+                      Případně využít samostatné kontrolní karty.<br /><br><input type="text" class="invisible-input"
+                        placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q41" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q41" value="no" /> Ne</label> <label><input type="radio" name="q41" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">42</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Náhodně vybraný stroj ev.č.<input
+                        type="text" class="custom-input" style="width: 168px"><br />
+                      - záznam o poslední kontrole stroje ? <input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - stroj zaevidováno v riscon?<br />
+                      - ke stroji veden provozní deník?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - ke stroji k dispozici návod výrobce?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - stroj není viditelně poškozený?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      <br />
+                      Náhodně vybraný stroj ev.č.<input type="text" class="custom-input" style="width: 168px"><br />
+                      - záznam o poslední kontrole stroje ? <input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - stroj zaevidováno v riscon?<br />
+                      - ke stroji veden provozní deník?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - ke stroji k dispozici návod výrobce?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - stroj není viditelně poškozený?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      <br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q42" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q42" value="no" /> Ne</label> <label><input type="radio" name="q42" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">43</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Sociální podmínky pro zaměstnance:<br />
+                      -teplá tekoucí voda pro zajištění osobní hygieny zajištěna?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      -pitná voda pro zaměstnance zajištěna?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      -záchod zajištěn (10 osob 1 sedadlo, více než 11 = 1 sed. na 50 osob.)?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      -zřízena místnost pro odpočinek, převlékání, sušení oděvů?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      -úklid sociálního zázemí prováděn dle zpracovaného harmonogramu?<input type="text"
+                        class="custom-input" style="width: 50px"><br><input type="text" class="invisible-input"
+                        placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q43" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q43" value="no" /> Ne</label> <label><input type="radio" name="q43" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">44</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Kontejnerová sestava (buňka) pro
+                      administrativní činnosti:<br />
+                      - stavební kontejner označen dle pravidel Chládek & Tintěra, a.s.?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - kontejner uzemněn?<input type="text" class="custom-input" style="width: 50px">/br>
+                      - revize el. připojení doložena?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - revize el. vybavení kontejneru doložena?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - na střeše kontejneru není skladován materiál?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - v případě více patrové sestavy a ochozu, je tento technicky dokumentován (systémový, nebo
+                      statický výpočet a výrobní výkres)?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - v kontejneru umístěn hasicí přístroj?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - nábytek nepoškozený<input type="text" class="custom-input" style="width: 50px"><br />
+                      - osoba odpovědná za provoz el. spotřebičů určena?<input type="text" class="custom-input"
+                        style="width: 50px"><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q44" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q44" value="no" /> Ne</label> <label><input type="radio" name="q44" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">45</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Skladovací kontejner:<br />
+                      - skladovací kontejner je bezpečně přístupný?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - skladovací kontejner označena dle pravidel Chládek & Tintěra, a.s. a skladovaných chemických
+                      látek (GHS)?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - kontejner uzemněn?<input type="text" class="custom-input" style="width: 50px">/br>
+                      - revize el. připojení doložena?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - sklad osvětlen?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - umístěny tabulky určující maximální nosnost podlahy skladu?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - regály označeny nosností?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - zajištěn volný přístup k regálům?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - materiál v regálech skladován stabilně?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - chemické látky skladovány v záchytných vanách?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - chemické látky neskladovány v neoznačených, nebo nevhodných nádobách?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - dodržován zákaz kouření ve skladu a v jeho bezprostřední blízkosti?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - ve skladu k dispozici hasicí přístroj?<input type="text" class="custom-input"
+                        style="width: 50px"><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q45" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q45" value="no" /> Ne</label> <label><input type="radio" name="q45" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">46</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Skladovací plochy - skladování:<br />
+                      - materiál skladován na vyhrazených místech; zajištěných proti vstupu nepovolaných osob?<input
+                        type="text" class="custom-input" style="width: 10px"><br />
+                      - materiál skladován na rovných, odvodněných a zpevněných plochách?<input type="text"
+                        class="custom-input" style="width: 10px"><br />
+                      - materiál skladován stabilně a tak, aby se během skladování nemohl sesunout (použity proklady,
+                      klíny, zarážky)?<input type="text" class="custom-input" style="width: 10px"><br />
+                      - kolejnice uloženy na patě s převisem konců nejvýše 2,5m a výšky stohu nejvýše 1,5 m.<input
+                        type="text" class="custom-input" style="width: 10px"><br />
+                      - betonové pražce neukládány křížem, proloženy proklady?<input type="text" class="custom-input"
+                        style="width: 10px"><br />
+                      - dodržena max výška stohovaných vrstev (vystrojené bet. pražce – 6; výhybkové pražce – 3;
+                      kolejová pole – 10)<input type="text" class="custom-input" style="width: 10px"><br><input
+                        type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q46" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q46" value="no" /> Ne</label> <label><input type="radio" name="q46" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">47</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Zajištění staveniště:<br />
+                      - staveniště na hranici souvisle oploceno do výšky 1,8 m (v zastavěném území); Ohrazeno zábradlím
+                      o výšce 1,1 m, nebo značením (liniové stavby)?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - vjezdy a vstupy na staveniště opatřeny zákazovým bezpečnostním a dopravním značením a sdruženou
+                      bezpečnostní tabulí?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - hranice staveniště označeny, aby byly rozpoznatelné i za snížené viditelností?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - náhradní komunikace řádně osvětleny a vyznačeny?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - náhradní komunikace bezpečně schůdné, bez otvorů, nerovností a výstupků?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - bezpečnostní značení je instalováno na vhodných místech a aktuální (např. značky výstrahy v
+                      místech kde nebezpečí hrozí)?<input type="text" class="custom-input"
+                        style="width: 50px"><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q47" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q47" value="no" /> Ne</label> <label><input type="radio" name="q47" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">48</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Ochranná pásma vedení, staveb nebo
+                      zařízení technického vybavení<br />
+                      - zabráněno vjezdu dopr. prostředků a strojů do ochranného pásma el. vedení? Případě pásmo
+                      vyznačeno a umístěny závěsné zábrany?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - opatření a podmínky pro práci v OP stanovené vlastníky PO plněny? Např. zákaz provádění
+                      strojního výkopu do 1 m od vyznačené polohy vedení?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - dodržován zákaz manipulace s obnaženými el. kabely pod napětím?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - s trasami energetických vedení seznámeny obsluhy stavebních strojů a další zaměstnanci (CHT
+                      2003)<input type="text" class="custom-input" style="width: 50px"><br />
+                      - pro výloučená vedení vystaven "Příkaz B" a umístěny zkratovací tyče<input type="text"
+                        class="custom-input" style="width: 50px"><br><input type="text" class="invisible-input"
+                        placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q48" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q48" value="no" /> Ne</label> <label><input type="radio" name="q48" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">49</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Zařízení pro rozvod el. energie a el.
+                      spotřebiče<br />
+                      - hlavní vypínač el. energie (stavby / pracoviště) trvale volně dostupný a označen?<input
+                        type="text" class="custom-input" style="width: 50px"><br />
+                      - vedení el. energie zajištěno proti poškození (nepřejížděno, nenamáháno tahem)? <input
+                        type="text" class="custom-input" style="width: 50px"><br />
+                      - používány el. zařízení dopovídající místním podmínkám (stupeň krytí IP 45; kabel H 05
+                      RN-F)?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - nepoužívané zařízení odpojeno od zdroje el. energie?<input type="text" class="custom-input"
+                        style="width: 50px"><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q49" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q49" value="no" /> Ne</label> <label><input type="radio" name="q49" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">50</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Práce v blízkosti provozované železniční
+                      dopravní cesty<br />
+                      - zaměstnanci se nezdržují v provozované dopravní cestě bez důvodu přímo souvisejícím s pracovními
+                      povinnostmi?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - dodržován zákaz vstupovat do provozované dopravní cesty bez soustředění se na provoz a
+                      rozhlédnutí na obě strany?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - při chůzi v kolejišti a po vnitro staveništní komunikaci je dodržován zákaz telefonovat,
+                      používat mobilní telefon, fotoaparáty atd. a používat handsfree, sluchátek s reprodukovanou hudbou
+                      a všechna zařízení snižující slyšitelnost s výjimkou specifických OOPP.?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - při průjezdu drážních vozidel zaměstnanci ustupují na vnější stranu koleje mimo průjezdný průřez
+                      koleje?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - není vstupováno do jízdní dráhy drážních vozidel a stavebního stroje?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - dodržován zákaz přecházet těsně před nebo za jedoucími vozidly?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - koleje jsou přecházeny kolmo k ose z rozhlédnutí na obě strany?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - chůze v koleji není prováděna (výjimky stanoveny čl. 6 SŽ Bp1); při jízdě vozidel pracovníci
+                      nepobývají v sousední koleji a tuto kolej nepoužívají pro další chůzi – sledují projíždějící
+                      vozidlo?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - používány pouze schválené komunikační prostředky a návěstidla?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - nářadí a materiál nezasahuje do průjezdného průřezu ani do volného schůdného a manipulačního
+                      prostoru; případně jsou učiněna preventivní opatření? Nářadí je před jedoucím vozidlem včas a
+                      řádně odklizeno z koleje?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - dodržování odstupové vzdáleností od trakčního vedení (nejméně 1,5 m, resp. 2,0m)?<input
+                        type="text" class="custom-input" style="width: 50px"><br />
+                      - pracoviště strojů zajištěno střežením bezpečnostní hlídkou; telekomunikační spojení s dopravním
+                      zaměstnancem zajištěno?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - na pracoviště strojů na napojení komunikací instalovány „hokejky“ – pevná páska výrazné barvy
+                      (viz čl. 19 SŽ Bp1)<input type="text" class="custom-input" style="width: 50px"><br />
+                      - bezpečnostní hlídky vybaveny dvouhlasnou trubkou?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - bezpečnostní hlídky plní své povinnosti a dávají návěst "vlak se blíží" stanoveným
+                      způsobem?<input type="text" class="custom-input" style="width: 50px"><br><input type="text"
+                        class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q50" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q50" value="no" /> Ne</label> <label><input type="radio" name="q50" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">51</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Zemní práce a výkopy<br />
+                      - výkopy zajištěny proti pádu osob, nebo sjetí mechanizmů, nebránící provozu drážní dopravy?<input
+                        type="text" class="custom-input" style="width: 50px"><br />
+                      - svislé stěny strojně hloubeného výkopu zajištěny proti sesutí technickou konstrukcí (pažení,
+                      rámy); případně svahovány dle projekt. dok.?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - do výkopů zajištěn trvale bezpečný přístup a zajištěn bezpečný pohyb pracovníků?<input
+                        type="text" class="custom-input" style="width: 50px"><br />
+                      - přechody přes výkopy; případně náhradní komunikace provedeny?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - stabilita okolních staveb zajištěna?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - okraje výkopů nezatěžovány do vzdálenosti 0,5m od hrany výkopů?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - v případě možného výskytů plynů a par ve výkopu, zajištěno měření jejich koncentrace a přijetí
+                      opatření (proti výbuchu, otravě, udušení)?<input type="text" class="custom-input"
+                        style="width: 50px"><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q51" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q51" value="no" /> Ne</label> <label><input type="radio" name="q51" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">52</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Montážní práce<br />
+                      - svislé dílce zajištěny proti překlopení šrouby, vzpěrami, stolicemi atd.?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - zvolené vázací prostředky odpovídají požadavkům výrobce a umožňují bezpečnou manipulaci?<input
+                        type="text" class="custom-input" style="width: 50px"><br />
+                      - pod zavěšeným břemenem se nezdržují osoby a je dodržován Systém bezpečné práce zdvihacího
+                      zařízení?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - břemena jsou naváděna vhodnými přípravky?<input type="text" class="custom-input"
+                        style="width: 50px"><br><input type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q52" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q52" value="no" /> Ne</label> <label><input type="radio" name="q52" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">53</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Práce ve výškách<br />
+                      - přístupové komunikace zajištěny proti pádu osob z výšky (do hloubky) technickou
+                      konstrukcí?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - pracoviště zajištěny proti pádu osob technickou konstrukcí; případně všechny osoby používají
+                      OOPP proti pádu?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - v případě použití OOPP proti pádu, jsou kotevní body prokazatelně určeny odpovědným zaměstnancem
+                      (pracovní postup, PD atd.)?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - použité prvky OOPP proti pádu jsou bez viditelných závad; pracovníci tyto používání dle návodu
+                      výrobce?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - prostor ohrožený pádem materiálu a osob z výšky je zajištěn proti vstupu osob, nebo jsou přijata
+                      jiná účinná opatření?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - používány nepoškozené, vhodné žebříky (typ, délka, umístění) a tyto jsou provozovány dle
+                      platných pravidel BOZP?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - na žebříku prováděny pouze krátkodobé práce za použití ručního nářadí? Při práci nad 5 m použito
+                      OOPP proti pádu z výšky?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - na pracovištích s nebezpečím pádu osob nepracují osoby osamoceně?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - práce, kterou nelze vykonat bezpečně, nebo v případě nevyhovujících klimatických podmínek není
+                      zahájena, nebo je přerušena?<input type="text" class="custom-input" style="width: 50px"><br><input
+                        type="text" class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q53" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q53" value="no" /> Ne</label> <label><input type="radio" name="q53" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">54</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Požární ochrana<br />
+                      - hasicí přístroje s platnou kontrolou a periodickou zkouškou?<input type="text"
+                        class="custom-input" style="width: 50px"><br />
+                      - hasící přístroje upevněné a bez dostupné?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - dodržován zákaz kouření?<input type="text" class="custom-input" style="width: 50px"><br><input
+                        type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q54" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q54" value="no" /> Ne</label> <label><input type="radio" name="q54" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">55</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Práce strojů pro zemní práce a zdvihání
+                      břemen<br />
+                      - stavební stroje a mechanizace nejsou viditelně poškozené?<input type="text" class="custom-input"
+                        style="width: 50px"><br />
+                      - stabilita strojů je v průběhu všech činností zajištěna (použity stabilizátory, táhla atd.?<input
+                        type="text" class="custom-input" style="width: 50px"><br />
+                      - před zahájením činnosti stroje, nebo v jeho průběhu se v ohroženém dosahu stroje nezdržují
+                      osoby?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - stroje tvořící překážku v pozemní komunikaci používají výstražné světlo oranžové barvy?<input
+                        type="text" class="custom-input" style="width: 50px"><br />
+                      - ve stroji jsou k dispozici prostředky pro poskytnutí první pomoci a hasicí přístroj<input
+                        type="text" class="custom-input" style="width: 50px"><br />
+                      - obsluha stroje používá bezpečnostní prvky a neobsluhuje zařízení v nevhodné obuvi<input
+                        type="text" class="custom-input" style="width: 50px"><br><input type="text"
+                        class="invisible-input" placeholder=" ">
+                    </td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q55" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q55" value="no" /> Ne</label> <label><input type="radio" name="q55" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                </table>
+              </div><br />
+              <div class="signature">
+                <table class="signature">
+                  <caption class="signature" style="text-align: left;">Vyplnil(a)</caption>
+                  <tr class="signature">
+                    <td class="signature" style="white-space: nowrap;">
+                      Datum: <input type="text" class="invisible-input" style="width: 150px; display: inline-block;"
+                        onfocus="if(this.value.includes('.')){const [d,m,y]=this.value.split('.'); this.value=y+'-'+m.padStart(2,'0')+'-'+d.padStart(2,'0');} this.type='date';"
+                        onblur="this.type='text'; if(this.value.includes('-')){const [y,m,d]=this.value.split('-'); this.value=d+'.'+m+'.'+y;}">
+                      <br /><br />
+                      Jméno a podpis: <input type="text" class="invisible-input"
+                        style="width: 150px; display: inline-block;">
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td class="tbl-sidebar"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div><input type="hidden" id="pPageItemsRowVersion" value="" /><input type="hidden" id="pPageItemsProtected"
+      value="fCiz6xyRenW66BJmSYSJ7v9fzjpPeZCoofAwx9g3180" />
+  </form>
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    // ZDE VLOŽTE URL VAŠEHO PUBLIKOVANÉHO GOOGLE APPS SCRIPTU
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDijedf61VVDWREiqeZnx3l39WkYgDB29_2FJdWnW6eVn4Ry6zD0Po03diinI4Tg4/exec';
+
+    function getFormData() {
+      const data = {
+        textInputs: [],
+        radios: {}
+      };
+
+      // Získat hodnoty ze všech textových polí
+      document.querySelectorAll('.custom-input, .invisible-input, .form-text-input').forEach((input) => {
+        data.textInputs.push(input.value);
+      });
+
+      // Získat vybrané hodnoty přepínačů
+      document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+        data.radios[radio.name] = radio.value;
+      });
+
+      return data;
+    }
+
+    function setFormData(data) {
+      if (!data) return;
+
+      // Obnovit textová pole
+      if (data.textInputs) {
+        document.querySelectorAll('.custom-input, .invisible-input, .form-text-input').forEach((input, index) => {
+          if (data.textInputs[index] !== undefined) {
+            input.value = data.textInputs[index];
+          }
+        });
+      }
+
+      // Obnovit přepínače
+      if (data.radios) {
+        for (const [name, value] of Object.entries(data.radios)) {
+          const radio = document.querySelector(`input[type="radio"][name="${name}"][value="${value}"]`);
+          if (radio) {
+            radio.checked = true;
+          }
+        }
+      }
+    }
+
+    function showStatus(message, isError = false) {
+      const statusEl = document.getElementById('sync-status');
+      statusEl.textContent = message;
+      statusEl.style.color = isError ? '#dc3545' : '#28a745';
+      setTimeout(() => {
+        statusEl.textContent = '';
+      }, 5000);
+    }
+
+
+    // Automatické nahrazování 1, 2, 3 a zrušení dynamické změny šířky
+    document.addEventListener('input', (e) => {
+      if (e.target.classList.contains('custom-input')) {
+        // Nahrazení
+        if (e.target.value === '1') {
+          e.target.value = '✓';
+        } else if (e.target.value === '2') {
+          e.target.value = '✕';
+        } else if (e.target.value === '3') {
+          e.target.value = '―';
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const btnSave = document.getElementById('btn-save');
+      const btnLoad = document.getElementById('btn-load');
+      const formIdInput = document.getElementById('form-id');
+
+      if (btnSave) {
+        btnSave.addEventListener('click', async () => {
+          const formId = formIdInput.value.trim();
+          if (!formId) {
+            showStatus('Zadejte ID/Název formuláře pro uložení', true);
+            return;
+          }
+
+          if (SCRIPT_URL === 'ZDE_VLOZTE_URL_VASEHO_APPS_SCRIPTU') {
+            showStatus('Upozornění: Musíte nastavit SCRIPT_URL v kódu (řádek cca 670)', true);
+            return;
+          }
+
+          showStatus('Ukládám...');
+          btnSave.disabled = true;
+
+          const payload = {
+            id: formId,
+            data: getFormData()
+          };
+
+          try {
+            const response = await fetch(SCRIPT_URL, {
+              method: 'POST',
+              headers: {
+                "Content-Type": "text/plain;charset=utf-8",
+              },
+              body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            if (result.status === 'success') {
+              showStatus('Úspěšně uloženo do Google Sheets');
+            } else {
+              showStatus('Chyba při ukládání: ' + result.message, true);
+            }
+          } catch (error) {
+            console.error('Chyba komunikace:', error);
+            showStatus('Chyba komunikace s Google API', true);
+          } finally {
+            btnSave.disabled = false;
+          }
+        });
+      }
+
+      if (btnLoad) {
+        btnLoad.addEventListener('click', async () => {
+          const query = formIdInput.value.trim();
+
+          if (SCRIPT_URL === 'ZDE_VLOZTE_URL_VASEHO_APPS_SCRIPTU') {
+            showStatus('Upozornění: Musíte nastavit SCRIPT_URL v kódu (řádek cca 670)', true);
+            return;
+          }
+
+          showStatus('Vyhledávám...');
+          btnLoad.disabled = true;
+
+          try {
+            const response = await fetch(SCRIPT_URL + '?action=list&query=' + encodeURIComponent(query));
+            const data = await response.json();
+
+            if (data.error) {
+              showStatus('Chyba: ' + data.error, true);
+            } else if (data.items && data.items.length > 0) {
+              showStatus('Vyberte formulář ze seznamu.');
+
+              // Zobrazit modální okno
+              const modal = document.getElementById('forms-modal');
+              const list = document.getElementById('forms-list');
+              list.innerHTML = '';
+
+              data.items.forEach(item => {
+                const li = document.createElement('li');
+                li.style.padding = "8px";
+                li.style.borderBottom = "1px solid #ddd";
+                li.style.cursor = "pointer";
+                let dateStr = '';
+                if (item.timestamp) {
+                  dateStr = new Date(item.timestamp).toLocaleString();
+                }
+                li.innerHTML = `<strong>${item.id}</strong> <br><small>${dateStr}</small>`;
+
+                // Při kliknutí načíst konkrétní formulář
+                li.addEventListener('click', async () => {
+                  modal.style.display = "none";
+                  formIdInput.value = item.id;
+                  showStatus('Načítám data formuláře...');
+
+                  try {
+                    const res = await fetch(SCRIPT_URL + '?id=' + encodeURIComponent(item.id));
+                    const detailData = await res.json();
+
+                    if (detailData.error) {
+                      showStatus('Chyba: ' + detailData.error, true);
+                    } else if (detailData.status === 'success' && detailData.data) {
+                      setFormData(detailData.data);
+                      showStatus('Úspěšně načteno!');
+                    } else if (detailData.textInputs) {
+                      // Fallback
+                      setFormData(detailData);
+                      showStatus('Úspěšně načteno!');
+                    } else {
+                      showStatus('Záznam nebyl nalezen nebo má špatný formát', true);
+                    }
+                  } catch (err) {
+                    showStatus('Chyba při načítání detailu.', true);
+                  }
+                });
+
+                li.onmouseover = () => { li.style.backgroundColor = "#f0f8ff"; };
+                li.onmouseout = () => { li.style.backgroundColor = "transparent"; };
+                list.appendChild(li);
+              });
+
+              modal.style.display = "flex";
+            } else {
+              showStatus('Žádné formuláře nebyly nalezeny.', true);
+            }
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            showStatus('Chyba připojení nebo skriptu.', true);
+          } finally {
+            btnLoad.disabled = false;
+          }
+        });
+
+        // Modal close
+        const modalCloseBtn = document.getElementById('modal-close');
+        if (modalCloseBtn) {
+          modalCloseBtn.addEventListener('click', () => {
+            document.getElementById('forms-modal').style.display = "none";
+          });
+        }
+      }
+    });
+  </script>
+
+
+  <div id="forms-modal"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:white; padding:20px; border-radius:5px; width:400px; max-width:90%; font-family:Calibri;">
+      <h3>Vyberte formulář k načtení</h3>
+      <ul id="forms-list"
+        style="list-style-type:none; padding:0; max-height:300px; overflow-y:auto; margin-bottom:15px;"></ul>
+      <button id="modal-close"
+        style="padding: 7px 15px; background-color: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer;">Zavřít</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
