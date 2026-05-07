@@ -325,6 +325,7 @@
       -webkit-appearance: none;
       width: 14px;
       height: 14px;
+      box-sizing: border-box;
       border: 1px solid black;
       border-radius: 2px;
       /* Čtverec místo kolečka */
@@ -336,16 +337,24 @@
       margin-left: 2px;
     }
 
+    input[type="radio"]:checked::before,
     input[type="radio"]:checked::after {
-      content: "✕";
-      color: blue;
-      font-size: 14px;
-      font-weight: bold;
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      line-height: 1;
+      width: 9px;
+      height: 2px;
+      background-color: blue;
+      transform-origin: center;
+    }
+
+    input[type="radio"]:checked::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    input[type="radio"]:checked::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
 
     @media print {
@@ -368,6 +377,40 @@
 
     .invisible-input:focus {
       border-bottom: 1px dashed #ccc;
+    }
+
+    .overflow-input-wrap {
+      position: relative;
+      overflow: visible !important;
+      max-width: none;
+      box-sizing: border-box;
+      vertical-align: baseline;
+    }
+
+    .overflow-input-wrap.custom-overflow-input {
+      border-bottom: 1px solid black;
+    }
+
+    .overflow-input-wrap.invisible-overflow-input:focus-within {
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .overflow-input-wrap>.custom-input,
+    .overflow-input-wrap>.invisible-input,
+    .overflow-input-wrap>.form-text-input {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      min-width: 100%;
+      max-width: none !important;
+      height: 100%;
+      padding: 0;
+      margin: 0 !important;
+      border: none !important;
+      background: transparent;
+      color: blue !important;
+      outline: none;
+      z-index: 2;
     }
   </style>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -1509,6 +1552,93 @@
     // ZDE VLOŽTE URL VAŠEHO PUBLIKOVANÉHO GOOGLE APPS SCRIPTU
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDijedf61VVDWREiqeZnx3l39WkYgDB29_2FJdWnW6eVn4Ry6zD0Po03diinI4Tg4/exec';
 
+    const OVERFLOW_INPUT_SELECTOR = '.custom-input, .invisible-input, .form-text-input';
+
+    function isOverflowTextInput(input) {
+      return input && input.classList && (
+        input.classList.contains('custom-input') ||
+        input.classList.contains('invisible-input') ||
+        input.classList.contains('form-text-input')
+      );
+    }
+
+    function getOverflowInputMeasureEl() {
+      let measureEl = document.getElementById('overflow-input-measure');
+
+      if (!measureEl) {
+        measureEl = document.createElement('span');
+        measureEl.id = 'overflow-input-measure';
+        measureEl.style.cssText = 'position:absolute;left:-9999px;top:-9999px;visibility:hidden;white-space:pre;padding:0;border:0;';
+        document.body.appendChild(measureEl);
+      }
+
+      return measureEl;
+    }
+
+    function updateOverflowInputWidth(input) {
+      if (!isOverflowTextInput(input)) return;
+
+      const wrapper = input.parentElement;
+      if (!wrapper || !wrapper.classList.contains('overflow-input-wrap')) return;
+
+      const measureEl = getOverflowInputMeasureEl();
+      const inputStyle = window.getComputedStyle(input);
+
+      measureEl.style.fontFamily = inputStyle.fontFamily;
+      measureEl.style.fontSize = inputStyle.fontSize;
+      measureEl.style.fontWeight = inputStyle.fontWeight;
+      measureEl.style.fontStyle = inputStyle.fontStyle;
+      measureEl.style.letterSpacing = inputStyle.letterSpacing;
+      measureEl.textContent = input.value || '';
+
+      const baseWidth = parseFloat(input.getAttribute('data-overflow-base-width')) || wrapper.getBoundingClientRect().width;
+      const textWidth = Math.ceil(measureEl.getBoundingClientRect().width) + 12;
+      input.style.width = Math.max(baseWidth, textWidth) + 'px';
+      input.scrollLeft = 0;
+    }
+
+    function setupOverflowInput(input) {
+      if (!isOverflowTextInput(input) || input.closest('.sync-panel')) return;
+      if (input.parentElement && input.parentElement.classList.contains('overflow-input-wrap')) {
+        updateOverflowInputWidth(input);
+        return;
+      }
+
+      const inputStyle = window.getComputedStyle(input);
+      const inputRect = input.getBoundingClientRect();
+      const baseWidth = inputRect.width || parseFloat(inputStyle.width) || 50;
+      const baseHeight = inputRect.height || parseFloat(inputStyle.height) || parseFloat(inputStyle.lineHeight) || 18;
+      const wrapper = document.createElement('span');
+
+      wrapper.className = 'overflow-input-wrap';
+      if (input.classList.contains('custom-input')) wrapper.classList.add('custom-overflow-input');
+      if (input.classList.contains('invisible-input')) wrapper.classList.add('invisible-overflow-input');
+      if (input.classList.contains('form-text-input')) wrapper.classList.add('form-overflow-input');
+
+      wrapper.style.display = inputStyle.display === 'block' ? 'block' : 'inline-block';
+      wrapper.style.width = baseWidth + 'px';
+      wrapper.style.height = baseHeight + 'px';
+      wrapper.style.marginTop = inputStyle.marginTop;
+      wrapper.style.marginRight = inputStyle.marginRight;
+      wrapper.style.marginBottom = inputStyle.marginBottom;
+      wrapper.style.marginLeft = inputStyle.marginLeft;
+      wrapper.style.verticalAlign = inputStyle.verticalAlign;
+
+      input.setAttribute('data-overflow-base-width', baseWidth);
+      input.parentNode.insertBefore(wrapper, input);
+      wrapper.appendChild(input);
+
+      updateOverflowInputWidth(input);
+    }
+
+    function initOverflowInputs() {
+      document.querySelectorAll(OVERFLOW_INPUT_SELECTOR).forEach(setupOverflowInput);
+    }
+
+    function syncOverflowInputs() {
+      document.querySelectorAll(OVERFLOW_INPUT_SELECTOR).forEach(updateOverflowInputWidth);
+    }
+
     function getFormData() {
       const data = {
         textInputs: [],
@@ -1536,6 +1666,7 @@
         document.querySelectorAll('.custom-input, .invisible-input, .form-text-input').forEach((input, index) => {
           if (data.textInputs[index] !== undefined) {
             input.value = data.textInputs[index];
+            updateOverflowInputWidth(input);
           }
         });
       }
@@ -1573,12 +1704,29 @@
           e.target.value = '―';
         }
       }
+
+      updateOverflowInputWidth(e.target);
     });
+
+    document.addEventListener('change', (e) => {
+      updateOverflowInputWidth(e.target);
+    });
+
+    document.addEventListener('focus', (e) => {
+      setTimeout(() => updateOverflowInputWidth(e.target), 0);
+    }, true);
+
+    document.addEventListener('blur', (e) => {
+      setTimeout(() => updateOverflowInputWidth(e.target), 0);
+    }, true);
 
     document.addEventListener('DOMContentLoaded', () => {
       const btnSave = document.getElementById('btn-save');
       const btnLoad = document.getElementById('btn-load');
       const formIdInput = document.getElementById('form-id');
+
+      initOverflowInputs();
+      window.addEventListener('resize', syncOverflowInputs);
 
       if (btnSave) {
         btnSave.addEventListener('click', async () => {
