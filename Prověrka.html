@@ -62,7 +62,8 @@
     table.si_table {
       width: 900px;
       caption-side: top;
-      page-break-inside: always;
+      page-break-inside: auto;
+      break-inside: auto;
     }
 
     table.si_table {
@@ -167,16 +168,32 @@
       padding: 1px 3px 1px 3px;
     }
 
-    @media print div {
-      page-break-inside:avoid;
-    }
+    @media print {
+      table.si_table {
+        page-break-inside: auto;
+        break-inside: auto;
+      }
 
-    table {
-      page-braeak-inside: avoid;
-    }
+      table.si_table tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        break-inside: avoid-page;
+      }
 
-    th {
-      page-break-inside: avoid;
+      table.si_table td,
+      table.si_table th {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        break-inside: avoid-page;
+      }
+
+      table.signature,
+      table.signature tr,
+      table.signature td {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        break-inside: avoid-page;
+      }
     }
 
     .toBeOnNewPage {
