@@ -343,9 +343,10 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 9px;
-      height: 2px;
+      width: 10px;
+      height: 1px;
       background-color: blue;
+      border-radius: 1px;
       transform-origin: center;
     }
 
@@ -1522,12 +1523,12 @@
                   <caption class="signature" style="text-align: left;">Vyplnil(a)</caption>
                   <tr class="signature">
                     <td class="signature" style="white-space: nowrap;">
-                      Datum: <input type="text" class="invisible-input" style="width: 150px; display: inline-block;"
+                      Datum: <input type="text" class="invisible-input" style="width: 150px; display: inline-block; vertical-align: middle;"
                         onfocus="if(this.value.includes('.')){const [d,m,y]=this.value.split('.'); this.value=y+'-'+m.padStart(2,'0')+'-'+d.padStart(2,'0');} this.type='date';"
                         onblur="this.type='text'; if(this.value.includes('-')){const [y,m,d]=this.value.split('-'); this.value=d+'.'+m+'.'+y;}">
                       <br /><br />
                       Jméno a podpis: <input type="text" class="invisible-input"
-                        style="width: 150px; display: inline-block;">
+                        style="width: 150px; display: inline-block; vertical-align: middle;">
                     </td>
                   </tr>
                 </table>
