@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<meta http-equiv="x-ua-compatible" content="IE=edge" />
+<html lang="cs" xmlns="http://www.w3.org/1999/xhtml" xmlns:htmldb="http://htmldb.oracle.com"
+  xmlns:apex="http://apex.oracle.com">
+
+<head>
+  <title>Print checklist</title>
+  <script type="text/javascript" nonce="5043de6eedfc4c6f9e01c61b099"
+    src="//local.adguard.org?ts=1777440911210&amp;type=content-script&amp;dmn=www.riscon.cz&amp;url=https%3A%2F%2Fwww.riscon.cz%2Fgo%2Ff%3Fp%3D110%3A6413%3A4602712742750%3A%3ANO%3A6416%3AP6413_ID%3A4833&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1&amp;stealth=1&amp;st-dnt"></script>
+  <script type="text/javascript" nonce="5043de6eedfc4c6f9e01c61b099"
+    src="//local.adguard.org?ts=1777440911210&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;name=Web%20of%20Trust&amp;type=user-script"></script>
+  <link rel="icon" href="/i/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/i/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/i/app_ui/css/Core.min.css?v=5.1.4.00.08" type="text/css" />
+  <link rel="stylesheet" href="/i/app_ui/css/Theme-Standard.min.css?v=5.1.4.00.08" type="text/css" />
+  <link rel="stylesheet" href="/i/libraries/jquery-ui/1.10.4/themes/base/jquery-ui.min.css?v=5.1.4.00.08"
+    type="text/css" />
+
+  <link rel="stylesheet" href="/i/legacy_ui/css/5.0.min.css?v=5.1.4.00.08" type="text/css" />
+
+
+
+
+
+
+  <script type="text/javascript">
+    var apex_img_dir = "/i/", htmldb_Img_Dir = apex_img_dir;
+  </script>
+  <!--[if lt IE 9]><script type="text/javascript" src="/i/libraries/jquery/1.12.3/jquery-1.12.3.min.js?v=5.1.4.00.08"></script><![endif]-->
+  <!--[if gte IE 9]><!-->
+  <script type="text/javascript" src="/i/libraries/jquery/2.2.3/jquery-2.2.3.min.js?v=5.1.4.00.08"></script>
+  <!--<![endif]-->
+  <script type="text/javascript" src="/i/libraries/apex/minified/desktop.min.js?v=5.1.4.00.08"></script>
+  <script type="text/javascript"
+    src="wwv_flow.js_messages?p_app_id=110&p_lang=cs&p_version=5.1.4.00.08-5037201396"></script>
+  <script type="text/javascript" src="/i/libraries/apex/minified/legacy.min.js?v=5.1.4.00.08"></script>
+  <script type="text/javascript"
+    src="/i/libraries/jquery-migrate/1.4.1/jquery-migrate-1.4.1.min.js?v=5.1.4.00.08"></script>
+
+
+
+
+
+  <style type="text/css">
+    div.shadowed {
+      box-shadow: 3px 3px 3px #DDDDFF;
+    }
+
+    em.si_em {
+      font-size: 14px;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    caption.document_title {
+      font-size: 20px;
+      font-weight: bold;
+      color: blue;
+      padding: 1px 3px 1px 3px;
+    }
+
+    table.si_table {
+      width: 900px;
+      caption-side: top;
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+
+    table.si_table {
+      border-top: 1px solid #DDDDDD;
+      border-bottom: 1px solid #DDDDDD;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    td.si_td {
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th.si_th {
+      border-bottom: 1px solid #DDDDDD;
+      background-color: #F1F1F1;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    li {
+      font-size: 14px;
+    }
+
+    td.si_td.strong {
+      font-weight: bold;
+    }
+
+    th.si_th,
+    td.si_td,
+    caption.si_caption {
+      padding: 1px 3px 1px 3px;
+    }
+
+    caption.si_caption {
+      font-size: 15px;
+      font-weight: bold;
+      background-color: #DDDDDD;
+      text-align: left;
+    }
+
+    th.si_th {
+      font-size: 14px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    td.si_td {
+      vertical-align: top;
+    }
+
+    h1.si_h1 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    h2.si_h2 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    h3.si_h3 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    h4.si_h4 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    div.signature {
+      float: left;
+    }
+
+    table.signature {
+      width: 280px;
+      caption-side: top;
+      float: left;
+      margin: 10px;
+    }
+
+    table.signature,
+    th.signature,
+    td.signature {
+      border: 1px solid #DDDDFF;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th.signature,
+    caption.signature {
+      font-size: 13px;
+      font-weight: bold;
+      background-color: #DDDDFF;
+    }
+
+    th.signature,
+    td.signature,
+    caption.signature {
+      padding: 1px 3px 1px 3px;
+    }
+
+    @media print {
+      table.si_table {
+        page-break-inside: auto;
+        break-inside: auto;
+      }
+
+      table.si_table tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        break-inside: avoid-page;
+      }
+
+      table.si_table td,
+      table.si_table th {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        break-inside: avoid-page;
+      }
+
+      table.signature,
+      table.signature tr,
+      table.signature td {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        break-inside: avoid-page;
+      }
+    }
+
+    .toBeOnNewPage {
+      page-break-before: always;
+    }
+
+    .noprint {
+      display: none;
+    }
+
+    .custom-input {
+      border: none;
+      border-bottom: 1px solid black;
+      background: transparent;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 0;
+      margin: 0 5px;
+      outline: none;
+      text-align: center;
+    }
+
+    .sync-panel {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 15px;
+      margin: 15px 15px;
+      border-radius: 5px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sync-panel label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .sync-panel input[type="text"] {
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 250px;
+      font-size: 14px;
+    }
+
+    .sync-panel button {
+      padding: 7px 15px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .sync-panel button:hover {
+      background-color: #004494;
+    }
+
+    .sync-panel button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    .sync-panel .status-msg {
+      margin-left: 10px;
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    #body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #body>.sync-panel {
+      width: 900px;
+      max-width: calc(100% - 30px);
+      box-sizing: border-box;
+    }
+
+    #body>.tbl-body {
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #body>.tbl-body .tbl-main {
+      width: auto;
+    }
+
+    @media print {
+      .custom-input {
+        border-bottom: 1px solid black !important;
+      }
+
+      .sync-panel {
+        display: none !important;
+      }
+    }
+
+    /* NEW UI RULES */
+    body,
+    input,
+    button,
+    table,
+    th,
+    td,
+    div,
+    span,
+    label,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    caption {
+      font-family: 'Calibri', sans-serif !important;
+    }
+
+    table.si_table,
+    table.si_table th,
+    table.si_table td,
+    table.si_table label,
+    table.si_table p {
+      line-height: 1.1 !important;
+    }
+
+    table.si_table th.si_th,
+    table.si_table td.si_td,
+    table.si_table caption.si_caption {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    table.si_table p {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    table.si_table br {
+      line-height: 0.7;
+    }
+
+    table.si_table .custom-input,
+    table.si_table .invisible-input,
+    table.si_table .form-text-input {
+      height: 15px;
+      line-height: 15px !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .custom-input {
+      overflow: visible;
+      color: blue !important;
+      text-align: left !important;
+      border-bottom: 1px solid black !important;
+      min-width: 50px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Custom checkbox styles using radio buttons */
+    label {
+      cursor: pointer;
+      color: black;
+      /* Barva textu Ano/Ne/NZ */
+      display: inline-flex;
+      align-items: center;
+    }
+
+    input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-radius: 2px;
+      /* Čtverec místo kolečka */
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+      margin-right: 4px;
+      margin-left: 2px;
+    }
+
+    input[type="radio"]:checked::before,
+    input[type="radio"]:checked::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 1px;
+      background-color: blue;
+      border-radius: 1px;
+      transform-origin: center;
+    }
+
+    input[type="radio"]:checked::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    input[type="radio"]:checked::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    @media print {
+      .custom-input {
+        border-bottom: 1px solid black !important;
+      }
+    }
+
+
+    .invisible-input {
+      border: none;
+      background: transparent;
+      width: 100%;
+      color: blue !important;
+      font-family: inherit;
+      font-size: inherit;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .invisible-input:focus {
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .overflow-input-wrap {
+      position: relative;
+      overflow: visible !important;
+      max-width: none;
+      box-sizing: border-box;
+      vertical-align: baseline;
+    }
+
+    .overflow-input-wrap.custom-overflow-input {
+      border-bottom: 1px solid black;
+    }
+
+    .overflow-input-wrap.invisible-overflow-input:focus-within {
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .overflow-input-wrap>.custom-input,
+    .overflow-input-wrap>.invisible-input,
+    .overflow-input-wrap>.form-text-input {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      min-width: 100%;
+      max-width: none !important;
+      height: 100%;
+      padding: 0;
+      margin: 0 !important;
+      border: none !important;
+      background: transparent;
+      color: blue !important;
+      outline: none;
+      z-index: 2;
+    }
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <link rel="stylesheet" href="/i/themes/theme_2/css/theme_4_0.css" type="text/css" />
+  <!--[if IE]><link rel="stylesheet" href="/i/themes/theme_2/css/theme_4_0_ie.css" type="text/css" /><![endif]-->
+  <!--[if IE 6]><link rel="stylesheet" href="/i/themes/theme_2/css/theme_4_0_ie6.css" type="text/css" /><![endif]-->
+  <!--[if IE 7]><link rel="stylesheet" href="/i/themes/theme_2/css/theme_4_0_ie7.css" type="text/css" /><![endif]-->
+</head>
+
+<body>
+  <!--[if lte IE 6]><div id="outdated-browser">You are using an outdated web browser. For a list of supported browsers, please reference the Oracle Application Express Installation Guide.</div><![endif]-->
+  <form action="wwv_flow.accept" method="post" name="wwv_flow" id="wwvFlowForm" novalidate>
+    <input type="hidden" name="p_flow_id" value="110" id="pFlowId" /><input type="hidden" name="p_flow_step_id"
+      value="6413" id="pFlowStepId" /><input type="hidden" name="p_instance" value="4602712742750"
+      id="pInstance" /><input type="hidden" name="p_page_submission_id" value="35115988069608320709066253105642808740"
+      id="pPageSubmissionId" /><input type="hidden" name="p_request" value="" id="pRequest" /><input type="hidden"
+      name="p_reload_on_submit" value="A" id="pReloadOnSubmit" /><input type="hidden"
+      value="35115988069608320709066253105642808740" id="pSalt" />
+    <div id="header">
+      <div id="app-logo"><a href="f?p=110:1:4602712742750:::::"><span class="noprint"
+            style="font-family:Arial; color:#004C66; font-size:18px; white-space:nowrap; font-weight:bold;">Chládek &
+            Tintěra, a.s.</span></a></div>
+
+      <div id="navbar">
+        <div class="app-user"></div>
+
+      </div>
+    </div>
+    <div id="body">
+      <div class="sync-panel noprint">
+        <label for="form-id">ID / Název formuláře:</label>
+        <input type="text" id="form-id" placeholder="Např. Kontrola_01">
+        <button id="btn-save" type="button">Uložit do Google Sheets</button>
+        <button id="btn-load" type="button">Načíst z Google Sheets</button>
+        <span id="sync-status" class="status-msg"></span>
+      </div>
+      <table class="tbl-body" cellspacing="0" cellpadding="0" border="0" summary="">
+        <tbody>
+          <tr>
+            <td class="tbl-sidebar"></td>
+            <td class="tbl-main" width="100%"><input type="hidden" id="P6413_ID" name="P6413_ID" value="4833"><input
+                type="hidden" data-for="P6413_ID" value="D8aFzHLxUasiBSoaSD1TNFWMn2U"><input type="hidden"
+                id="P6413_INSP_ID" name="P6413_INSP_ID" value=""><input type="hidden" data-for="P6413_INSP_ID"
+                value="G7VW7SxL8LHBbIMlSh6jKRx6aBg">
+              <div>
+                <table class="si_table">
+                  <caption class="document_title" style="text-align: right;">Kontrolní seznam (checklist)
+                  </caption>
+                  <tr>
+                    <td class="si_td" style="text-align:left;"><em class="si_em"> Chládek & Tintěra, a.s.</em>, Nerudova
+                      1022, 412 01 Litoměřice<br /></td>
+                    <td class="si_td" style="text-align:right;"><img
+                        src="https://www.cht.cz/wp-content/uploads/2022/12/Logo_Chladek__Tintera_icon_favicon_200.png"
+                        style="max-height:50px; width:auto;" /></td>
+                  </tr>
+                  <tr>
+                  </tr>
+                </table>
+              </div><br />
+              <div>
+                <table class="si_table">
+                  <tr>
+                    <td class="si_td" style="text-align: left; min-width:100px;">N&aacute;zev:</td>
+                    <td class="si_td" style="text-align:left;font-weight:bold;">Kontrola BOZP</td>
+                    <td class="si_td" style="text-align:right; font-weight:bold;">03</td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align: left;">Platnost od:</td>
+                    <td class="si_td" style="text-align:left;">20.02.2023</td>
+                    <td class="si_td" style="text-align:right;">01</td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align: left; vertical-align:top;">Kontrolovan&yacute; subjekt ID:</td>
+                    <td class="si_td" style="text-align:left; vertical-align:top;" colspan=2><br /><input type="text"
+                        id="subject-id-input" class="custom-input" style="width: 216px"></td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align: left;">&Uacute;&#269;el:</td>
+                    <td class="si_td" style="text-align:left; vertical-align:top;" colspan=2>
+                      <p>Slouží pro provádění kontroly bezpečnosti a ochrany zdraví a požární ochrany na pracovišti dle ust. § 102 odst. 3 zák. č. 262/2006 Sb., a § 12 Vyhl. č. 246/2001 Sb.</p>
+                    </td>
+                  </tr>
+                </table>
+              </div><br />
+              <div>
+                <table class="si_table">
+                  <tr>
+                    <th class="si_th" style="text-align:center;">#</th>
+                    <th class="si_th" style="text-align:left;">Ot&aacute;zka/P&#345;edm&#283;t</th>
+                    <th class="si_th" style="text-align:center;">Hodnocen&iacute;/Odpov&#283;&#271;</th>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">1</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">K dispozici matice odpovědnosti stavby (viz kniha BOZP)? Určená osoba, která odpovídá za BOZP?<input type="text" class="custom-input" style="width: 154px"><br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q1" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q1" value="no" /> Ne</label> <label><input type="radio" name="q1" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">2</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Činnost prováděna dle zpracovaných Analýz rizik - Bezpečnostních instrukcí (karty rizik)? Které činnosti jsou ve vazbě na karty rizik<br />
+                      prováděny<input type="text" class="custom-input" style="width: 560px"><br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q2" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q2" value="no" /> Ne</label> <label><input type="radio" name="q2" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">3</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Pro které prováděné činnosti není zpracována Analýza rizik- Bezpečnostní instrukce?<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q3" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q3" value="no" /> Ne</label> <label><input type="radio" name="q3" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">4</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Pracovní postupy zpracovány (CHT 2009)? Pracovní postupy řádně zpracovány a propojeny s Analýzou rizik - bezpečnostními profily? Doplněna další<br />
+                      rizika?<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q4" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q4" value="no" /> Ne</label> <label><input type="radio" name="q4" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">5</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Všechny osoby seznámeny s místními bezpečnostními podmínkami staveniště (viz CHT 2003)? Seznámení s MBP je úplně vyplněno dle podmínek stavby?<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q5" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q5" value="no" /> Ne</label> <label><input type="radio" name="q5" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">6</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Je řádně vedena Kniha BOZP?<br />
+                      - titulní strana<input type="text" class="custom-input" style="width: 50px"><br />
+                      - záznam o prohlídkách a údržbě el. zařízení na staveništi<input type="text" class="custom-input" style="width: 50px"><br />
+                      - záznam o výdeji OOPP ochranných nápojů na pracovišti<input type="text" class="custom-input" style="width: 50px"><br />
+                      - záznamy o kontrole BOZP a PO na pracovišti<input type="text" class="custom-input" style="width: 50px"><br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q6" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q6" value="no" /> Ne</label> <label><input type="radio" name="q6" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">7</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Předchozí prověrka / kontrola BOZP provedena? Neshody odstraněny?<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q7" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q7" value="no" /> Ne</label> <label><input type="radio" name="q7" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">8</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Neshody odstraněny z předchozí prověrky / kontroly BOZP?<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q8" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q8" value="no" /> Ne</label> <label><input type="radio" name="q8" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">9</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Denní poučení zaměstnanců provedeno (CHT 2004)?<br />
+                      Protokol řádně a v plném rozsahu vyplněn<input type="text" class="custom-input" style="width: 50px"><br />
+                      Uvedené informace odpovídají podmínkám na pracovišti<input type="text" class="custom-input" style="width: 50px"><br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q9" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q9" value="no" /> Ne</label> <label><input type="radio" name="q9" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">10</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Určení bezpečnostních hlídek provedeno (CHT 2008)?<br />
+                      Doklad řádně a úplně vyplněn<input type="text" class="custom-input" style="width: 50px">?<br />
+                      Uvedené osoby skutečně vykonávají hlídku?<input type="text" class="custom-input" style="width: 50px"><br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q10" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q10" value="no" /> Ne</label> <label><input type="radio" name="q10" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">11</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Pověření vedoucím prací doloženo:<input type="text" class="custom-input" style="width: 84px">?<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q11" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q11" value="no" /> Ne</label> <label><input type="radio" name="q11" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">12</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Stroje, zařízení a nářadí označeno evidenčními čísly Chládek &amp; Tintěra, a.s.<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q12" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q12" value="no" /> Ne</label> <label><input type="radio" name="q12" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">13</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Náhodně vybrané el. zařízení, ev.č.<input type="text" class="custom-input" style="width: 147px"><br />
+                      - záznam o poslední kontrole zařízení<input type="text" class="custom-input" style="width: 56px"><br />
+                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input" style="width: 91px"><br />
+                      - zařízení zaevidováno<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q13" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q13" value="no" /> Ne</label> <label><input type="radio" name="q13" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">14</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Náhodně vybrané vázací prostředky ev.č.<input type="text" class="custom-input" style="width: 147px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input" style="width: 56px"><br />
+                      - zařízení zaevidováno<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q14" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q14" value="no" /> Ne</label> <label><input type="radio" name="q14" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">15</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Náhodně vybrané nářadí, zařízení apod. ev.č.<input type="text" class="custom-input" style="width: 147px"><br />
+                      - záznam o poslední kontrole zařízení <input type="text" class="custom-input" style="width: 56px"><br />
+                      - zařízení zaevidováno<br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q15" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q15" value="no" /> Ne</label> <label><input type="radio" name="q15" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">16</td>
+                    <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Práce v blízkosti provozované železniční dopravní cesty<br />
+                      - zaměstnanci se nezdržují v provozované dopravní cestě bez důvodu přímo souvisejícím s pracovními povinnostmi?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - dodržován zákaz vstupovat do provozované dopravní cesty bez soustředění se na provoz a rozhlédnutí na obě strany?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - při chůzi v kolejišti a po vnitro staveništní komunikaci je dodržován zákaz telefonovat, používat mobilní telefon, fotoaparáty atd. a používat handsfree,<br />
+                      sluchátek s reprodukovanou hudbou a všechna zařízení snižující slyšitelnost s výjimkou specifických OOPP.?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - při průjezdu drážních vozidel zaměstnanci ustupují na vnější stranu koleje mimo průjezdný průřez koleje?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - není vstupováno do jízdní dráhy drážních vozidel a stavebního stroje?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - dodržován zákaz přecházet těsně před nebo za jedoucími vozidly?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - koleje jsou přecházeny kolmo k ose z rozhlédnutí na obě strany?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - chůze v koleji není prováděna (výjimky stanoveny čl. 6 SŽ Bp1); při jízdě vozidel pracovníci nepobývají v sousední koleji a tuto kolej nepoužívají pro další<br />
+                      chůzi – sledují projíždějící vozidlo?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - používány pouze schválené komunikační prostředky a návěstidla?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - nářadí a materiál nezasahuje do průjezdného průřezu ani do volného schůdného a manipulačního prostoru; případně jsou učiněna preventivní opatření?<br />
+                      Nářadí je před jedoucím vozidlem včas a řádně odklizeno z koleje?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - dodržování odstupové vzdáleností od trakčního vedení (nejméně 1,5 m, resp. 2,0m)?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - pracoviště strojů zajištěno střežením bezpečnostní hlídkou; telekomunikační spojení s dopravním zaměstnancem zajištěno?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - na pracoviště strojů na napojení komunikací instalovány „hokejky“ – pevná páska výrazné barvy (viz čl. 19 SŽ Bp1)<input type="text" class="custom-input" style="width: 50px"><br />
+                      - bezpečnostní hlídky vybaveny dvouhlasnou trubkou?<input type="text" class="custom-input" style="width: 50px"><br />
+                      - bezpečnostní hlídky plní své povinnosti a dávají návěst &quot;vlak se blíží&quot; stanoveným způsobem?<input type="text" class="custom-input" style="width: 50px"><br />
+                      <input type="text" class="invisible-input" placeholder=" "></td>
+                    <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
+                      <label><input type="radio" name="q16" value="yes" /> Ano</label> <label><input type="radio"
+                          name="q16" value="no" /> Ne</label> <label><input type="radio" name="q16" value="na" />
+                        NZ</label>
+                    </td>
+                  </tr>
+                </table>
+              </div><br />              <div class="signature">
+                <table class="signature">
+                  <caption class="signature" style="text-align: left;">Vyplnil(a)</caption>
+                  <tr class="signature">
+                    <td class="signature" style="white-space: nowrap;">
+                      Datum: <input type="text" class="invisible-input" style="width: 150px; display: inline-block; vertical-align: middle;"
+                        onfocus="if(this.value.includes('.')){const [d,m,y]=this.value.split('.'); this.value=y+'-'+m.padStart(2,'0')+'-'+d.padStart(2,'0');} this.type='date';"
+                        onblur="this.type='text'; if(this.value.includes('-')){const [y,m,d]=this.value.split('-'); this.value=d+'.'+m+'.'+y;}">
+                      <br /><br />
+                      Jméno a podpis: <input type="text" class="invisible-input"
+                        style="width: 150px; display: inline-block; vertical-align: middle;">
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td class="tbl-sidebar"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div><input type="hidden" id="pPageItemsRowVersion" value="" /><input type="hidden" id="pPageItemsProtected"
+      value="fCiz6xyRenW66BJmSYSJ7v9fzjpPeZCoofAwx9g3180" />
+  </form>
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    // ZDE VLOŽTE URL VAŠEHO PUBLIKOVANÉHO GOOGLE APPS SCRIPTU
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDijedf61VVDWREiqeZnx3l39WkYgDB29_2FJdWnW6eVn4Ry6zD0Po03diinI4Tg4/exec';
+
+    const OVERFLOW_INPUT_SELECTOR = '.custom-input, .invisible-input, .form-text-input';
+    const DEFAULT_PRINT_TITLE = document.title || 'Print checklist';
+
+    function sanitizePdfFileName(value) {
+      return value
+        .replace(/[<>:"/\\|?*]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function buildPdfFileName() {
+      const subjectInput = document.getElementById('subject-id-input');
+      const rawValue = subjectInput ? subjectInput.value.trim() : '';
+
+      if (!rawValue) return 'Checklist';
+
+      const parts = rawValue.split('-').map(part => part.trim()).filter(Boolean);
+      const prefix = parts[0] || '';
+      const numberMatch = rawValue.match(/\b\d{3,}\b/);
+      const number = numberMatch ? numberMatch[0] : '';
+      const nameParts = [];
+
+      if (number) nameParts.push(number);
+      if (prefix) nameParts.push(prefix);
+      if (!nameParts.length) nameParts.push(rawValue);
+      nameParts.push('Checklist');
+
+      return sanitizePdfFileName(nameParts.join(' '));
+    }
+
+    function updatePrintTitle() {
+      const pdfFileName = buildPdfFileName();
+      document.title = pdfFileName || DEFAULT_PRINT_TITLE;
+    }
+
+    function isOverflowTextInput(input) {
+      return input && input.classList && (
+        input.classList.contains('custom-input') ||
+        input.classList.contains('invisible-input') ||
+        input.classList.contains('form-text-input')
+      );
+    }
+
+    function getOverflowInputMeasureEl() {
+      let measureEl = document.getElementById('overflow-input-measure');
+
+      if (!measureEl) {
+        measureEl = document.createElement('span');
+        measureEl.id = 'overflow-input-measure';
+        measureEl.style.cssText = 'position:absolute;left:-9999px;top:-9999px;visibility:hidden;white-space:pre;padding:0;border:0;';
+        document.body.appendChild(measureEl);
+      }
+
+      return measureEl;
+    }
+
+    function updateOverflowInputWidth(input) {
+      if (!isOverflowTextInput(input)) return;
+
+      const wrapper = input.parentElement;
+      if (!wrapper || !wrapper.classList.contains('overflow-input-wrap')) return;
+
+      const measureEl = getOverflowInputMeasureEl();
+      const inputStyle = window.getComputedStyle(input);
+
+      measureEl.style.fontFamily = inputStyle.fontFamily;
+      measureEl.style.fontSize = inputStyle.fontSize;
+      measureEl.style.fontWeight = inputStyle.fontWeight;
+      measureEl.style.fontStyle = inputStyle.fontStyle;
+      measureEl.style.letterSpacing = inputStyle.letterSpacing;
+      measureEl.textContent = input.value || '';
+
+      const baseWidth = parseFloat(input.getAttribute('data-overflow-base-width')) || wrapper.getBoundingClientRect().width;
+      const textWidth = Math.ceil(measureEl.getBoundingClientRect().width) + 12;
+      input.style.width = Math.max(baseWidth, textWidth) + 'px';
+      input.scrollLeft = 0;
+    }
+
+    function setupOverflowInput(input) {
+      if (!isOverflowTextInput(input) || input.closest('.sync-panel')) return;
+      if (input.parentElement && input.parentElement.classList.contains('overflow-input-wrap')) {
+        updateOverflowInputWidth(input);
+        return;
+      }
+
+      const inputStyle = window.getComputedStyle(input);
+      const inputRect = input.getBoundingClientRect();
+      const baseWidth = inputRect.width || parseFloat(inputStyle.width) || 50;
+      const baseHeight = inputRect.height || parseFloat(inputStyle.height) || parseFloat(inputStyle.lineHeight) || 18;
+      const wrapper = document.createElement('span');
+
+      wrapper.className = 'overflow-input-wrap';
+      if (input.classList.contains('custom-input')) wrapper.classList.add('custom-overflow-input');
+      if (input.classList.contains('invisible-input')) wrapper.classList.add('invisible-overflow-input');
+      if (input.classList.contains('form-text-input')) wrapper.classList.add('form-overflow-input');
+
+      wrapper.style.display = inputStyle.display === 'block' ? 'block' : 'inline-block';
+      wrapper.style.width = baseWidth + 'px';
+      wrapper.style.height = baseHeight + 'px';
+      wrapper.style.marginTop = inputStyle.marginTop;
+      wrapper.style.marginRight = inputStyle.marginRight;
+      wrapper.style.marginBottom = inputStyle.marginBottom;
+      wrapper.style.marginLeft = inputStyle.marginLeft;
+      wrapper.style.verticalAlign = inputStyle.verticalAlign;
+
+      input.setAttribute('data-overflow-base-width', baseWidth);
+      input.parentNode.insertBefore(wrapper, input);
+      wrapper.appendChild(input);
+
+      updateOverflowInputWidth(input);
+    }
+
+    function initOverflowInputs() {
+      document.querySelectorAll(OVERFLOW_INPUT_SELECTOR).forEach(setupOverflowInput);
+    }
+
+    function syncOverflowInputs() {
+      document.querySelectorAll(OVERFLOW_INPUT_SELECTOR).forEach(updateOverflowInputWidth);
+    }
+
+    function getFormData() {
+      const data = {
+        textInputs: [],
+        radios: {}
+      };
+
+      // Získat hodnoty ze všech textových polí
+      document.querySelectorAll('.custom-input, .invisible-input, .form-text-input').forEach((input) => {
+        data.textInputs.push(input.value);
+      });
+
+      // Získat vybrané hodnoty přepínačů
+      document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+        data.radios[radio.name] = radio.value;
+      });
+
+      return data;
+    }
+
+    function setFormData(data) {
+      if (!data) return;
+
+      // Obnovit textová pole
+      if (data.textInputs) {
+        document.querySelectorAll('.custom-input, .invisible-input, .form-text-input').forEach((input, index) => {
+          if (data.textInputs[index] !== undefined) {
+            input.value = data.textInputs[index];
+            updateOverflowInputWidth(input);
+          }
+        });
+        updatePrintTitle();
+      }
+
+      // Obnovit přepínače
+      if (data.radios) {
+        for (const [name, value] of Object.entries(data.radios)) {
+          const radio = document.querySelector(`input[type="radio"][name="${name}"][value="${value}"]`);
+          if (radio) {
+            radio.checked = true;
+          }
+        }
+      }
+    }
+
+    function showStatus(message, isError = false) {
+      const statusEl = document.getElementById('sync-status');
+      statusEl.textContent = message;
+      statusEl.style.color = isError ? '#dc3545' : '#28a745';
+      setTimeout(() => {
+        statusEl.textContent = '';
+      }, 5000);
+    }
+
+
+    // Automatické nahrazování 1, 2, 3 a zrušení dynamické změny šířky
+    document.addEventListener('input', (e) => {
+      if (e.target.classList.contains('custom-input')) {
+        // Nahrazení
+        if (e.target.value === '1') {
+          e.target.value = '✓';
+        } else if (e.target.value === '2') {
+          e.target.value = '✕';
+        } else if (e.target.value === '3') {
+          e.target.value = '―';
+        }
+      }
+
+      updateOverflowInputWidth(e.target);
+      if (e.target.id === 'subject-id-input') {
+        updatePrintTitle();
+      }
+    });
+
+    document.addEventListener('change', (e) => {
+      updateOverflowInputWidth(e.target);
+    });
+
+    document.addEventListener('focus', (e) => {
+      setTimeout(() => updateOverflowInputWidth(e.target), 0);
+    }, true);
+
+    document.addEventListener('blur', (e) => {
+      setTimeout(() => updateOverflowInputWidth(e.target), 0);
+    }, true);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const btnSave = document.getElementById('btn-save');
+      const btnLoad = document.getElementById('btn-load');
+      const formIdInput = document.getElementById('form-id');
+
+      initOverflowInputs();
+      window.addEventListener('resize', syncOverflowInputs);
+
+      if (btnSave) {
+        btnSave.addEventListener('click', async () => {
+          const formId = formIdInput.value.trim();
+          if (!formId) {
+            showStatus('Zadejte ID/Název formuláře pro uložení', true);
+            return;
+          }
+
+          if (SCRIPT_URL === 'ZDE_VLOZTE_URL_VASEHO_APPS_SCRIPTU') {
+            showStatus('Upozornění: Musíte nastavit SCRIPT_URL v kódu (řádek cca 670)', true);
+            return;
+          }
+
+          showStatus('Ukládám...');
+          btnSave.disabled = true;
+
+          const payload = {
+            id: formId,
+            data: getFormData()
+          };
+
+          try {
+            const response = await fetch(SCRIPT_URL, {
+              method: 'POST',
+              headers: {
+                "Content-Type": "text/plain;charset=utf-8",
+              },
+              body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            if (result.status === 'success') {
+              showStatus('Úspěšně uloženo do Google Sheets');
+            } else {
+              showStatus('Chyba při ukládání: ' + result.message, true);
+            }
+          } catch (error) {
+            console.error('Chyba komunikace:', error);
+            showStatus('Chyba komunikace s Google API', true);
+          } finally {
+            btnSave.disabled = false;
+          }
+        });
+      }
+
+      if (btnLoad) {
+        btnLoad.addEventListener('click', async () => {
+          const query = formIdInput.value.trim();
+
+          if (SCRIPT_URL === 'ZDE_VLOZTE_URL_VASEHO_APPS_SCRIPTU') {
+            showStatus('Upozornění: Musíte nastavit SCRIPT_URL v kódu (řádek cca 670)', true);
+            return;
+          }
+
+          showStatus('Vyhledávám...');
+          btnLoad.disabled = true;
+
+          try {
+            const response = await fetch(SCRIPT_URL + '?action=list&query=' + encodeURIComponent(query));
+            const data = await response.json();
+
+            if (data.error) {
+              showStatus('Chyba: ' + data.error, true);
+            } else if (data.items && data.items.length > 0) {
+              showStatus('Vyberte formulář ze seznamu.');
+
+              // Zobrazit modální okno
+              const modal = document.getElementById('forms-modal');
+              const list = document.getElementById('forms-list');
+              list.innerHTML = '';
+
+              data.items.forEach(item => {
+                const li = document.createElement('li');
+                li.style.padding = "8px";
+                li.style.borderBottom = "1px solid #ddd";
+                li.style.cursor = "pointer";
+                let dateStr = '';
+                if (item.timestamp) {
+                  dateStr = new Date(item.timestamp).toLocaleString();
+                }
+                li.innerHTML = `<strong>${item.id}</strong> <br><small>${dateStr}</small>`;
+
+                // Při kliknutí načíst konkrétní formulář
+                li.addEventListener('click', async () => {
+                  modal.style.display = "none";
+                  formIdInput.value = item.id;
+                  showStatus('Načítám data formuláře...');
+
+                  try {
+                    const res = await fetch(SCRIPT_URL + '?id=' + encodeURIComponent(item.id));
+                    const detailData = await res.json();
+
+                    if (detailData.error) {
+                      showStatus('Chyba: ' + detailData.error, true);
+                    } else if (detailData.status === 'success' && detailData.data) {
+                      setFormData(detailData.data);
+                      showStatus('Úspěšně načteno!');
+                    } else if (detailData.textInputs) {
+                      // Fallback
+                      setFormData(detailData);
+                      showStatus('Úspěšně načteno!');
+                    } else {
+                      showStatus('Záznam nebyl nalezen nebo má špatný formát', true);
+                    }
+                  } catch (err) {
+                    showStatus('Chyba při načítání detailu.', true);
+                  }
+                });
+
+                li.onmouseover = () => { li.style.backgroundColor = "#f0f8ff"; };
+                li.onmouseout = () => { li.style.backgroundColor = "transparent"; };
+                list.appendChild(li);
+              });
+
+              modal.style.display = "flex";
+            } else {
+              showStatus('Žádné formuláře nebyly nalezeny.', true);
+            }
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            showStatus('Chyba připojení nebo skriptu.', true);
+          } finally {
+            btnLoad.disabled = false;
+          }
+        });
+
+        // Modal close
+        const modalCloseBtn = document.getElementById('modal-close');
+        if (modalCloseBtn) {
+          modalCloseBtn.addEventListener('click', () => {
+            document.getElementById('forms-modal').style.display = "none";
+          });
+        }
+      }
+    });
+  </script>
+
+
+  <div id="forms-modal"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:white; padding:20px; border-radius:5px; width:400px; max-width:90%; font-family:Calibri;">
+      <h3>Vyberte formulář k načtení</h3>
+      <ul id="forms-list"
+        style="list-style-type:none; padding:0; max-height:300px; overflow-y:auto; margin-bottom:15px;"></ul>
+      <button id="modal-close"
+        style="padding: 7px 15px; background-color: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer;">Zavřít</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
