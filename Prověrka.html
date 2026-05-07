@@ -538,7 +538,7 @@
                   <tr>
                     <td class="si_td" style="text-align: left; vertical-align:top;">Kontrolovaný subjekt ID:</td>
                     <td class="si_td" style="text-align:left; vertical-align:top;" colspan=2><br /><input type="text"
-                        class="custom-input" style="width: 216px"></td>
+                        id="subject-id-input" class="custom-input" style="width: 216px"></td>
                   </tr>
                   <tr>
                     <td class="si_td" style="text-align: left;">Účel:</td>
@@ -1604,6 +1604,39 @@
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDijedf61VVDWREiqeZnx3l39WkYgDB29_2FJdWnW6eVn4Ry6zD0Po03diinI4Tg4/exec';
 
     const OVERFLOW_INPUT_SELECTOR = '.custom-input, .invisible-input, .form-text-input';
+    const DEFAULT_PRINT_TITLE = document.title || 'Print checklist';
+
+    function sanitizePdfFileName(value) {
+      return value
+        .replace(/[<>:"/\\|?*]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function buildPdfFileName() {
+      const subjectInput = document.getElementById('subject-id-input');
+      const rawValue = subjectInput ? subjectInput.value.trim() : '';
+
+      if (!rawValue) return 'Checklist';
+
+      const parts = rawValue.split('-').map(part => part.trim()).filter(Boolean);
+      const prefix = parts[0] || '';
+      const numberMatch = rawValue.match(/\b\d{3,}\b/);
+      const number = numberMatch ? numberMatch[0] : '';
+      const nameParts = [];
+
+      if (number) nameParts.push(number);
+      if (prefix) nameParts.push(prefix);
+      if (!nameParts.length) nameParts.push(rawValue);
+      nameParts.push('Checklist');
+
+      return sanitizePdfFileName(nameParts.join(' '));
+    }
+
+    function updatePrintTitle() {
+      const pdfFileName = buildPdfFileName();
+      document.title = pdfFileName || DEFAULT_PRINT_TITLE;
+    }
 
     function isOverflowTextInput(input) {
       return input && input.classList && (
@@ -1720,6 +1753,7 @@
             updateOverflowInputWidth(input);
           }
         });
+        updatePrintTitle();
       }
 
       // Obnovit přepínače
@@ -1757,6 +1791,9 @@
       }
 
       updateOverflowInputWidth(e.target);
+      if (e.target.id === 'subject-id-input') {
+        updatePrintTitle();
+      }
     });
 
     document.addEventListener('change', (e) => {
