@@ -1621,7 +1621,7 @@
       const subjectInput = document.getElementById('subject-id-input');
       const rawValue = subjectInput ? subjectInput.value.trim() : '';
 
-      if (!rawValue) return 'Checklist';
+      if (!rawValue) return 'Prověrka';
 
       const parts = rawValue.split('-').map(part => part.trim()).filter(Boolean);
       const prefix = parts[0] || '';
@@ -1632,7 +1632,7 @@
       if (number) nameParts.push(number);
       if (prefix) nameParts.push(prefix);
       if (!nameParts.length) nameParts.push(rawValue);
-      nameParts.push('Checklist');
+      nameParts.push('Prověrka');
 
       return sanitizePdfFileName(nameParts.join(' '));
     }
@@ -1757,7 +1757,7 @@
             updateOverflowInputWidth(input);
           }
         });
-        updatePrintTitle();
+        // updatePrintTitle();
       }
 
       // Obnovit přepínače
@@ -1796,7 +1796,7 @@
 
       updateOverflowInputWidth(e.target);
       if (e.target.id === 'subject-id-input') {
-        updatePrintTitle();
+        // updatePrintTitle();
       }
     });
 
@@ -1860,7 +1860,7 @@
                 const sigDate = document.getElementById('signature-date');
                 if (sigDate && !sigDate.value) {
                   const now = new Date();
-                  sigDate.value = now.getDate().toString().padStart(2,'0') + '.' + (now.getMonth()+1).toString().padStart(2,'0') + '.' + now.getFullYear();
+                  sigDate.value = now.getDate().toString().padStart(2, '0') + '.' + (now.getMonth() + 1).toString().padStart(2, '0') + '.' + now.getFullYear();
                 }
                 showStatus('Úspěšně uloženo. Automatické ukládání zapnuto ✓');
               }
