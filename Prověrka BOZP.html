@@ -464,6 +464,11 @@
       z-index: 2;
     }
 
+    /* === Datumová pole (Ze dne / dne) === */
+    .custom-input.date-input {
+      min-width: 130px;
+    }
+
     /* === Vizuální upozornění na nevyplněná pole (pouze na obrazovce, nikoli při tisku) === */
     @media screen {
       .custom-input.validation-missing {
@@ -654,7 +659,7 @@
                     <td class="si_td" style="text-align:center; border-bottom:1px solid #DDDDDD;">6</td>
                     <td class="si_td" style="border-bottom:1px solid #DDDDDD;">Protokol o předání a převzetí staveniště
                       (investor - zhotovitel)? <br />
-                      Ze dne<input type="text" class="custom-input" style="width: 168px">
+                      Ze dne <input type="text" class="custom-input date-input" style="width: 168px">
                       (provést kontrolu podpisů zúčastněných stran)<br /><br><input type="text" class="invisible-input"
                         placeholder=" "></td>
                     <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
@@ -1150,24 +1155,24 @@
                         type="text" class="custom-input" style="width: 168px"><br />
                       - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
                         style="width: 64px"><br />
-                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input"
-                        style="width: 104px"><br />
+                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input date-input"
+                        style="width: 130px"><br />
                       - zařízení zaevidováno <br />
                       <br />
                       Náhodně vybrané el. zařízení, ev.č.<input type="text" class="custom-input"
                         style="width: 168px"><br />
                       - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
                         style="width: 64px"><br />
-                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input"
-                        style="width: 104px"><br />
+                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input date-input"
+                        style="width: 130px"><br />
                       - zařízení zaevidováno<br />
                       <br />
                       Náhodně vybrané el. zařízení, ev.č.<input type="text" class="custom-input"
                         style="width: 168px"><br />
                       - záznam o poslední kontrole zařízení <input type="text" class="custom-input"
                         style="width: 64px"><br />
-                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input"
-                        style="width: 104px"><br />
+                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input date-input"
+                        style="width: 130px"><br />
                       - zařízení zaevidováno <br><input type="text" class="invisible-input" placeholder=" ">
                     </td>
                     <td class="si_td" style="text-align:center; width:150px; border-bottom:1px solid #DDDDDD;">
@@ -1886,6 +1891,34 @@
     document.addEventListener('input', updateValidationHighlights);
     document.addEventListener('change', updateValidationHighlights);
     document.addEventListener('DOMContentLoaded', updateValidationHighlights);
+
+    // === Datumová pole (Ze dne / dne) — přepínání text/date při focus/blur ===
+    document.addEventListener('focusin', (e) => {
+      const el = e.target;
+      if (!el.classList || !el.classList.contains('date-input')) return;
+      if (el.value && el.value.includes('.')) {
+        const [d, m, y] = el.value.split('.');
+        if (d && m && y) {
+          el.value = y + '-' + m.padStart(2, '0') + '-' + d.padStart(2, '0');
+        }
+      }
+      el.type = 'date';
+    });
+
+    document.addEventListener('focusout', (e) => {
+      const el = e.target;
+      if (!el.classList || !el.classList.contains('date-input')) return;
+      el.type = 'text';
+      if (el.value && el.value.includes('-')) {
+        const [y, m, d] = el.value.split('-');
+        if (d && m && y) {
+          el.value = d + '.' + m + '.' + y;
+        }
+      }
+      if (typeof updateOverflowInputWidth === 'function') {
+        updateOverflowInputWidth(el);
+      }
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
       const btnSave = document.getElementById('btn-save');

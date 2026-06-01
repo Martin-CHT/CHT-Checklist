@@ -464,6 +464,11 @@
       z-index: 2;
     }
 
+    /* === Datumová pole (Ze dne / dne) === */
+    .custom-input.date-input {
+      min-width: 130px;
+    }
+
     /* === Vizuální upozornění na nevyplněná pole (pouze na obrazovce, nikoli při tisku) === */
     @media screen {
       .custom-input.validation-missing {
@@ -754,8 +759,8 @@
                         type="text" class="custom-input" style="width: 147px"><br />
                       - záznam o poslední kontrole zařízení<input type="text" class="custom-input"
                         style="width: 56px"><br />
-                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input"
-                        style="width: 91px"><br />
+                      - Zpráva o revizi zařízení doložena ze dne:<input type="text" class="custom-input date-input"
+                        style="width: 130px"><br />
                       - zařízení zaevidováno<br />
                       <input type="text" class="invisible-input" placeholder=" ">
                     </td>
@@ -1132,6 +1137,34 @@
     document.addEventListener('input', updateValidationHighlights);
     document.addEventListener('change', updateValidationHighlights);
     document.addEventListener('DOMContentLoaded', updateValidationHighlights);
+
+    // === Datumová pole (Ze dne / dne) — přepínání text/date při focus/blur ===
+    document.addEventListener('focusin', (e) => {
+      const el = e.target;
+      if (!el.classList || !el.classList.contains('date-input')) return;
+      if (el.value && el.value.includes('.')) {
+        const [d, m, y] = el.value.split('.');
+        if (d && m && y) {
+          el.value = y + '-' + m.padStart(2, '0') + '-' + d.padStart(2, '0');
+        }
+      }
+      el.type = 'date';
+    });
+
+    document.addEventListener('focusout', (e) => {
+      const el = e.target;
+      if (!el.classList || !el.classList.contains('date-input')) return;
+      el.type = 'text';
+      if (el.value && el.value.includes('-')) {
+        const [y, m, d] = el.value.split('-');
+        if (d && m && y) {
+          el.value = d + '.' + m + '.' + y;
+        }
+      }
+      if (typeof updateOverflowInputWidth === 'function') {
+        updateOverflowInputWidth(el);
+      }
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
       const btnSave = document.getElementById('btn-save');
