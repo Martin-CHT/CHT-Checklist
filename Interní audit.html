@@ -463,6 +463,37 @@
       outline: none;
       z-index: 2;
     }
+
+    /* === Vizuální upozornění na nevyplněná pole (pouze na obrazovce, nikoli při tisku) === */
+    @media screen {
+      .custom-input.validation-missing {
+        background-color: #fff3cd !important;
+      }
+
+      .overflow-input-wrap.validation-missing-wrap {
+        background-color: #fff3cd !important;
+        border-bottom: 2px solid #d32f2f !important;
+      }
+
+      td.si_td.validation-missing-cell {
+        background-color: #fff3cd !important;
+        outline: 2px solid #d32f2f;
+        outline-offset: -2px;
+      }
+    }
+
+    @media print {
+      .custom-input.validation-missing,
+      .overflow-input-wrap.validation-missing-wrap,
+      td.si_td.validation-missing-cell {
+        background-color: transparent !important;
+        outline: none !important;
+      }
+
+      .overflow-input-wrap.validation-missing-wrap {
+        border-bottom: 1px solid black !important;
+      }
+    }
   </style>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -1953,6 +1984,8 @@
           }
         }
       }
+
+      updateValidationHighlights();
     }
 
     function showStatus(message, isError = false) {
@@ -1995,6 +2028,48 @@
     document.addEventListener('blur', (e) => {
       setTimeout(() => updateOverflowInputWidth(e.target), 0);
     }, true);
+
+    // === Vizuální upozornění na nevyplněná pole ===
+    function setCustomInputValidation(input, missing) {
+      input.classList.toggle('validation-missing', missing);
+      const wrapper = input.parentElement;
+      if (wrapper && wrapper.classList.contains('overflow-input-wrap')) {
+        wrapper.classList.toggle('validation-missing-wrap', missing);
+      }
+    }
+
+    function updateValidationHighlights() {
+      const subjectInput = document.getElementById('subject-id-input');
+      const subjectFilled = !!(subjectInput && subjectInput.value.trim() !== '');
+
+      const seenNames = new Set();
+      document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        const name = radio.name;
+        if (!name || !/^q\d+$/.test(name) || seenNames.has(name)) return;
+        seenNames.add(name);
+
+        const row = radio.closest('tr');
+        if (!row) return;
+
+        const radios = row.querySelectorAll('input[type="radio"][name="' + name + '"]');
+        const anyChecked = Array.from(radios).some(r => r.checked);
+        const yesChecked = Array.from(radios).some(r => r.checked && r.value === 'yes');
+
+        const radioCell = radios[0].closest('td');
+        if (radioCell) {
+          radioCell.classList.toggle('validation-missing-cell', subjectFilled && !anyChecked);
+        }
+
+        row.querySelectorAll('input.custom-input').forEach(input => {
+          const empty = input.value.trim() === '';
+          setCustomInputValidation(input, yesChecked && empty);
+        });
+      });
+    }
+
+    document.addEventListener('input', updateValidationHighlights);
+    document.addEventListener('change', updateValidationHighlights);
+    document.addEventListener('DOMContentLoaded', updateValidationHighlights);
 
     document.addEventListener('DOMContentLoaded', () => {
       const btnSave = document.getElementById('btn-save');
