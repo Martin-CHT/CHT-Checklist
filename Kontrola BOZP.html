@@ -485,14 +485,25 @@
         outline: 2px solid #d32f2f;
         outline-offset: -2px;
       }
+
+      /* Zvýraznění celého řádku otázky při zaškrtnutí NE — položky do závěrečné zprávy */
+      tr.no-checked-row > td.si_td {
+        background-color: #ffcdd2 !important;
+      }
+
+      tr.no-checked-row > td.si_td:first-child {
+        box-shadow: inset 4px 0 0 #c62828;
+      }
     }
 
     @media print {
       .custom-input.validation-missing,
       .overflow-input-wrap.validation-missing-wrap,
-      td.si_td.validation-missing-cell {
+      td.si_td.validation-missing-cell,
+      tr.no-checked-row > td.si_td {
         background-color: transparent !important;
         outline: none !important;
+        box-shadow: none !important;
       }
 
       .overflow-input-wrap.validation-missing-wrap {
@@ -1121,6 +1132,9 @@
         const radios = row.querySelectorAll('input[type="radio"][name="' + name + '"]');
         const anyChecked = Array.from(radios).some(r => r.checked);
         const yesChecked = Array.from(radios).some(r => r.checked && r.value === 'yes');
+        const noChecked = Array.from(radios).some(r => r.checked && r.value === 'no');
+
+        row.classList.toggle('no-checked-row', noChecked);
 
         const radioCell = radios[0].closest('td');
         if (radioCell) {
@@ -1137,6 +1151,36 @@
     document.addEventListener('input', updateValidationHighlights);
     document.addEventListener('change', updateValidationHighlights);
     document.addEventListener('DOMContentLoaded', updateValidationHighlights);
+
+    // === Možnost odškrtnutí (zrušení výběru) radio buttonu kliknutím na zaškrtnutou volbu ===
+    (function () {
+      let lastChecked = null;
+
+      function getRadioFromEvent(e) {
+        const el = e.target;
+        if (!el) return null;
+        if (el.tagName === 'INPUT' && el.type === 'radio') return el;
+        if (el.closest) {
+          const label = el.closest('label');
+          if (label) return label.querySelector('input[type="radio"]');
+        }
+        return null;
+      }
+
+      document.addEventListener('mousedown', (e) => {
+        const r = getRadioFromEvent(e);
+        lastChecked = (r && /^q\d+$/.test(r.name) && r.checked) ? r : null;
+      });
+
+      document.addEventListener('click', (e) => {
+        const r = getRadioFromEvent(e);
+        if (r && r === lastChecked) {
+          r.checked = false;
+          lastChecked = null;
+          r.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      });
+    })();
 
     // === Datumová pole (Ze dne / dne) — přepínání text/date při focus/blur ===
     document.addEventListener('focusin', (e) => {
