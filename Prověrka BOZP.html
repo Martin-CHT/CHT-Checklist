@@ -487,20 +487,21 @@
       }
 
       /* Zvýraznění celého řádku otázky při zaškrtnutí NE — položky do závěrečné zprávy */
-      tr.no-checked-row > td.si_td {
+      tr.no-checked-row>td.si_td {
         background-color: #ffcdd2 !important;
       }
 
-      tr.no-checked-row > td.si_td:first-child {
+      tr.no-checked-row>td.si_td:first-child {
         box-shadow: inset 4px 0 0 #c62828;
       }
     }
 
     @media print {
+
       .custom-input.validation-missing,
       .overflow-input-wrap.validation-missing-wrap,
       td.si_td.validation-missing-cell,
-      tr.no-checked-row > td.si_td {
+      tr.no-checked-row>td.si_td {
         background-color: transparent !important;
         outline: none !important;
         box-shadow: none !important;
@@ -509,6 +510,33 @@
       .overflow-input-wrap.validation-missing-wrap {
         border-bottom: 1px solid black !important;
       }
+    }
+
+    .signature-input-group {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .signature-display {
+      position: absolute;
+      left: 80px;
+      top: -60px;
+      transform: translateY(0%);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-touch-callout: none;
+      pointer-events: none;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    .signature-display canvas {
+      display: block;
+      pointer-events: none;
     }
   </style>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -1625,8 +1653,10 @@
                         onfocus="if(this.value.includes('.')){const [d,m,y]=this.value.split('.'); this.value=y+'-'+m.padStart(2,'0')+'-'+d.padStart(2,'0');} this.type='date';"
                         onblur="this.type='text'; if(this.value.includes('-')){const [y,m,d]=this.value.split('-'); this.value=d+'.'+m+'.'+y;}">
                       <br /><br />
-                      Jméno a podpis: <input type="text" class="invisible-input"
-                        style="width: 150px; display: inline-block; vertical-align: middle;">
+                      Jméno a podpis: <span class="signature-input-group"><input type="text" id="signature-name"
+                          data-signature-input class="invisible-input"
+                          style="width: 150px; display: inline-block; vertical-align: middle;"><span
+                          class="signature-display" aria-hidden="true"></span></span>
                     </td>
                   </tr>
                 </table>
@@ -2168,6 +2198,92 @@
         style="padding: 7px 15px; background-color: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer;">Zavřít</button>
     </div>
   </div>
+
+  <script type="text/javascript">
+    (function () {
+      const SIGNATURE_FILE_URL = 'file:///C:/Users/orth/OneDrive - Chládek & Tintera, a.s/Práce/Razítko/Podpis.PNG';
+      const DISPLAY_HEIGHT_PX = 90;
+
+      let cachedImage = null;
+      let loadPromise = null;
+
+      function loadSignatureImage() {
+        if (loadPromise) return loadPromise;
+        loadPromise = new Promise(function (resolve) {
+          const img = new Image();
+          img.onload = function () {
+            if (img.naturalWidth > 0 && img.naturalHeight > 0) {
+              cachedImage = img;
+              resolve(true);
+            } else {
+              resolve(false);
+            }
+          };
+          img.onerror = function () { resolve(false); };
+          img.src = SIGNATURE_FILE_URL;
+        });
+        return loadPromise;
+      }
+
+      function clearContainer(container) {
+        while (container.firstChild) container.removeChild(container.firstChild);
+      }
+
+      function renderSignatureInto(container) {
+        clearContainer(container);
+        if (!cachedImage) return;
+        const canvas = document.createElement('canvas');
+        canvas.width = cachedImage.naturalWidth;
+        canvas.height = cachedImage.naturalHeight;
+        canvas.getContext('2d').drawImage(cachedImage, 0, 0);
+        const ratio = cachedImage.naturalWidth / cachedImage.naturalHeight;
+        canvas.style.height = DISPLAY_HEIGHT_PX + 'px';
+        canvas.style.width = (DISPLAY_HEIGHT_PX * ratio) + 'px';
+        canvas.setAttribute('aria-hidden', 'true');
+        canvas.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+        canvas.addEventListener('dragstart', function (e) { e.preventDefault(); });
+        container.appendChild(canvas);
+      }
+
+      function getOrCreateContainer(input) {
+        let container = input.nextElementSibling;
+        if (!container || !container.classList || !container.classList.contains('signature-display')) {
+          container = document.createElement('span');
+          container.className = 'signature-display';
+          container.setAttribute('aria-hidden', 'true');
+          input.parentNode.insertBefore(container, input.nextSibling);
+        }
+        container.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+        return container;
+      }
+
+      function update(input) {
+        const container = getOrCreateContainer(input);
+        const value = (input.value || '').trim();
+        if (!value) { clearContainer(container); return; }
+        loadSignatureImage().then(function (ok) {
+          if (!(input.value || '').trim()) { clearContainer(container); return; }
+          if (ok) { renderSignatureInto(container); }
+          else { clearContainer(container); }
+        });
+      }
+
+      function init() {
+        const inputs = document.querySelectorAll('input[data-signature-input]');
+        inputs.forEach(function (input) {
+          input.addEventListener('input', function () { update(input); });
+          input.addEventListener('change', function () { update(input); });
+          update(input);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
 
 </body>
 
