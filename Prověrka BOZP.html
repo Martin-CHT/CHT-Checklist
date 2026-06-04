@@ -2201,28 +2201,54 @@
 
   <script type="text/javascript">
     (function () {
-      const SIGNATURE_FILE_URL = 'file:///C:/Users/orth/OneDrive - Chládek & Tintera, a.s/Práce/Razítko/Podpis.PNG';
       const DISPLAY_HEIGHT_PX = 90;
+      const REQUEST_DELAY_MS = 300;
 
+      let cachedLookupValue = null;
       let cachedImage = null;
-      let loadPromise = null;
+      let requestCounter = 0;
 
-      function loadSignatureImage() {
-        if (loadPromise) return loadPromise;
-        loadPromise = new Promise(function (resolve) {
+      function tryLoadFromUrl(src) {
+        return new Promise(function (resolve) {
+          if (!src) { resolve(null); return; }
           const img = new Image();
           img.onload = function () {
-            if (img.naturalWidth > 0 && img.naturalHeight > 0) {
-              cachedImage = img;
-              resolve(true);
-            } else {
-              resolve(false);
-            }
+            if (img.naturalWidth > 0 && img.naturalHeight > 0) resolve(img);
+            else resolve(null);
           };
-          img.onerror = function () { resolve(false); };
-          img.src = SIGNATURE_FILE_URL;
+          img.onerror = function () { resolve(null); };
+          img.src = src;
         });
-        return loadPromise;
+      }
+
+      async function requestSignatureData(value) {
+        if (!value || SCRIPT_URL === 'ZDE_VLOZTE_URL_VASEHO_APPS_SCRIPTU') return null;
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ action: 'signature', value: value })
+        });
+        const result = await response.json();
+        if (result && result.status === 'success' && result.match && result.imageDataUrl) {
+          return result.imageDataUrl;
+        }
+        return null;
+      }
+
+      async function loadSignatureImage(value) {
+        if (cachedLookupValue === value) return !!cachedImage;
+        cachedLookupValue = value;
+        cachedImage = null;
+
+        const dataUrl = await requestSignatureData(value);
+        if (!dataUrl) return false;
+
+        const img = await tryLoadFromUrl(dataUrl);
+        if (img) {
+          cachedImage = img;
+          return true;
+        }
+        return false;
       }
 
       function clearContainer(container) {
@@ -2260,12 +2286,22 @@
       function update(input) {
         const container = getOrCreateContainer(input);
         const value = (input.value || '').trim();
+        requestCounter += 1;
+        const requestId = requestCounter;
+        if (input.__signatureTimer) clearTimeout(input.__signatureTimer);
         if (!value) { clearContainer(container); return; }
-        loadSignatureImage().then(function (ok) {
-          if (!(input.value || '').trim()) { clearContainer(container); return; }
-          if (ok) { renderSignatureInto(container); }
-          else { clearContainer(container); }
-        });
+        clearContainer(container);
+        input.__signatureTimer = setTimeout(function () {
+          loadSignatureImage(value).then(function (ok) {
+            if (requestId !== requestCounter || (input.value || '').trim() !== value) return;
+            if (ok) { renderSignatureInto(container); }
+            else { clearContainer(container); }
+          }).catch(function () {
+            if (requestId === requestCounter && (input.value || '').trim() === value) {
+              clearContainer(container);
+            }
+          });
+        }, REQUEST_DELAY_MS);
       }
 
       function init() {
